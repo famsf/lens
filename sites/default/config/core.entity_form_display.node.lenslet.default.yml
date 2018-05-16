@@ -14,7 +14,7 @@ dependencies:
     - field.field.node.lenslet.field_item_id
     - field.field.node.lenslet.field_medium
     - field.field.node.lenslet.field_rights
-    - image.style.thumbnail
+    - image.style.medium
     - node.type.lenslet
   module:
     - field_group
@@ -112,10 +112,10 @@ content:
   field_image:
     weight: 2
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
       preview_link: true
       offsets: '50,50'
+      progress_indicator: throbber
     third_party_settings: {  }
     type: image_focal_point
     region: content
