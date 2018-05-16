@@ -1,0 +1,23 @@
+uuid: 44ee1e22-6e41-423b-8363-8491e7a05792
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_born
+    - node.type.artist
+id: node.artist.field_born
+field_name: field_born
+entity_type: node
+bundle: artist
+label: Born
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

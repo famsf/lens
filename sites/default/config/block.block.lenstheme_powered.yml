@@ -1,0 +1,22 @@
+uuid: 14df6b85-9763-495f-8b7d-cf5a21e5c74f
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - lenstheme
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: lenstheme_powered
+theme: lenstheme
+region: header
+weight: -7
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

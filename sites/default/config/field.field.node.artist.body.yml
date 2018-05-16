@@ -1,0 +1,22 @@
+uuid: 3b43b2a8-6b9e-4f68-b6fd-98e9eb4f507c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.artist
+  module:
+    - text
+id: node.artist.body
+field_name: body
+entity_type: node
+bundle: artist
+label: Bio
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

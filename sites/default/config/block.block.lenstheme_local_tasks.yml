@@ -1,0 +1,22 @@
+uuid: a3eca133-4b66-46cd-b31c-263a13f57165
+langcode: en
+status: true
+dependencies:
+  theme:
+    - lenstheme
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: lenstheme_local_tasks
+theme: lenstheme
+region: content
+weight: -7
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

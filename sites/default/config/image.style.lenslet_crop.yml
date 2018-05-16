@@ -1,0 +1,17 @@
+uuid: 3b1eee65-9dbd-4df7-acc3-41c9a71b8f3a
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: lenslet_crop
+label: 'Lenslet crop'
+effects:
+  81141bfe-bf86-492f-9379-b6c615b1a6b9:
+    uuid: 81141bfe-bf86-492f-9379-b6c615b1a6b9
+    id: focal_point_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 512
+      crop_type: focal_point

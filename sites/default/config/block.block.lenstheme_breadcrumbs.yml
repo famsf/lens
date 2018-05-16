@@ -1,0 +1,22 @@
+uuid: c71ce4ad-04e3-4c6e-af1f-0f05e0cb86c6
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - lenstheme
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: lenstheme_breadcrumbs
+theme: lenstheme
+region: header
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

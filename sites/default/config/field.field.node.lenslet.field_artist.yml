@@ -1,0 +1,28 @@
+uuid: 848f4e0b-42a5-48a8-a7d5-a8650343b594
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_artist
+    - node.type.artist
+    - node.type.lenslet
+id: node.lenslet.field_artist
+field_name: field_artist
+entity_type: node
+bundle: lenslet
+label: Artist
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      artist: artist
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

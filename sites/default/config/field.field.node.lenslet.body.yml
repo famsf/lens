@@ -1,0 +1,22 @@
+uuid: beccb683-d466-401f-9df8-02cb566e1d87
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.lenslet
+  module:
+    - text
+id: node.lenslet.body
+field_name: body
+entity_type: node
+bundle: lenslet
+label: Description
+description: 'Description for "Curator''s notes" section.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

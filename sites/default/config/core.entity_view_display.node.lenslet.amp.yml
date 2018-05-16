@@ -1,0 +1,150 @@
+uuid: 174be2c2-756c-4e2a-9264-ba49d9e6748d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.amp
+    - field.field.node.lenslet.body
+    - field.field.node.lenslet.field_artist
+    - field.field.node.lenslet.field_collection
+    - field.field.node.lenslet.field_country
+    - field.field.node.lenslet.field_date
+    - field.field.node.lenslet.field_dimensions
+    - field.field.node.lenslet.field_image
+    - field.field.node.lenslet.field_item_id
+    - field.field.node.lenslet.field_medium
+    - field.field.node.lenslet.field_rights
+    - image.style.lenslet_crop
+    - node.type.lenslet
+  module:
+    - amp
+    - field_group
+    - text
+    - user
+third_party_settings:
+  field_group:
+    group_artwork_information:
+      children:
+        - field_dimensions
+        - field_medium
+        - field_item_id
+        - field_rights
+        - field_country
+        - field_collection
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        label: 'Artwork information'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: 'Artwork information'
+      region: content
+    group_artist_and_date:
+      children:
+        - field_artist
+        - field_date
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: artist
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Artist and date'
+      region: content
+id: node.lenslet.amp
+targetEntityType: node
+bundle: lenslet
+mode: amp
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_artist:
+    type: entity_reference_label
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_collection:
+    type: entity_reference_label
+    weight: 10
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_country:
+    type: entity_reference_label
+    weight: 9
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_date:
+    type: amp_text
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_dimensions:
+    type: amp_text
+    weight: 3
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    type: amp_image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: lenslet_crop
+      image_link: ''
+      amp_layout: responsive
+      amp_fixed_height: '300'
+    third_party_settings: {  }
+  field_item_id:
+    type: amp_text
+    weight: 5
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_medium:
+    type: amp_text
+    weight: 4
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_rights:
+    type: amp_text
+    weight: 7
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  links: true

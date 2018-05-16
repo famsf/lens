@@ -1,0 +1,21 @@
+uuid: 7c8c9153-81f3-4967-990d-10f730108d15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rights
+    - node.type.lenslet
+  module:
+    - text
+id: node.lenslet.field_rights
+field_name: field_rights
+entity_type: node
+bundle: lenslet
+label: 'Credit line'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

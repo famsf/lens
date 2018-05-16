@@ -1,0 +1,19 @@
+uuid: 32386975-eb71-4aac-aa26-437c6babc6be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_medium
+    - node.type.lenslet
+id: node.lenslet.field_medium
+field_name: field_medium
+entity_type: node
+bundle: lenslet
+label: Medium
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

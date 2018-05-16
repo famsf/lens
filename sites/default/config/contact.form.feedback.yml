@@ -1,0 +1,14 @@
+uuid: 887bec25-e57f-4a26-b975-7f0fba02694c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: 'Website feedback'
+recipients:
+  - afox@famsf.org
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''

@@ -1,0 +1,22 @@
+uuid: 1be3b644-bc2d-430b-8d42-4e6cbc9cbf91
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - lenstheme
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: lenstheme_messages
+theme: lenstheme
+region: header
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,28 @@
+uuid: 026d4cf4-e41a-45f5-ac38-18e90584531c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.lenslet.body
+    - node.type.lenslet
+  module:
+    - text
+    - user
+id: node.lenslet.teaser
+targetEntityType: node
+bundle: lenslet
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

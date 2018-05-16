@@ -1,0 +1,9 @@
+uuid: ea3068c9-ae86-4965-accd-e6ced9917e03
+langcode: en
+status: true
+dependencies: {  }
+name: Collection
+vid: collection
+description: ''
+hierarchy: 0
+weight: 0

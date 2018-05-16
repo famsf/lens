@@ -1,0 +1,22 @@
+uuid: b9efd6cf-87c7-47fb-87ca-1922c91cdaf0
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - lenstheme
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: lenstheme_help
+theme: lenstheme
+region: content
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

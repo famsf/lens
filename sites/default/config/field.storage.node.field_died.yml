@@ -1,0 +1,20 @@
+uuid: e21e0c70-d90a-42ba-b1fa-0002a091801c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_died
+field_name: field_died
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

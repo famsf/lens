@@ -1,0 +1,7 @@
+uuid: fa2d375f-af0e-4248-b9c8-db4759a15023
+langcode: en
+status: true
+dependencies: {  }
+name: lens
+label: 'Lenslet image'
+effects: {  }

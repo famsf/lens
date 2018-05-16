@@ -1,0 +1,22 @@
+uuid: 5520474d-bde3-4e33-8aab-011d967f6dc1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: lenslet_path
+label: 'Lenslet path'
+type: 'canonical_entities:node'
+pattern: 'lenslet/[node:title]'
+selection_criteria:
+  dad67da5-4b7f-4a15-88eb-3edb5b3a6ca0:
+    id: node_type
+    bundles:
+      lenslet: lenslet
+    negate: false
+    context_mapping:
+      node: node
+    uuid: dad67da5-4b7f-4a15-88eb-3edb5b3a6ca0
+selection_logic: and
+weight: -5
+relationships: {  }

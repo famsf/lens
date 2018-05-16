@@ -1,0 +1,22 @@
+uuid: b1ef81ab-a440-4d17-9ab6-6d612b78b7d0
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - ampsubtheme_example
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: ampsubtheme_example_messages
+theme: ampsubtheme_example
+region: header
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

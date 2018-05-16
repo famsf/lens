@@ -1,0 +1,23 @@
+uuid: 31fdb7ec-793a-4f6f-8c03-6ad350808800
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_died
+    - node.type.artist
+id: node.artist.field_died
+field_name: field_died
+entity_type: node
+bundle: artist
+label: Died
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

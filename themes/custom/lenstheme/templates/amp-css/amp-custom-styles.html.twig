@@ -20,7 +20,7 @@ body {
 }
 
 .amp-main__content {
-  padding-top: 20px;
+  padding-top: 0;
   padding-bottom: 40px;
 }
 
@@ -29,6 +29,42 @@ body {
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
+}
+
+.artist {
+  position: absolute;
+  padding-left: 1rem;
+  top: 2.5rem;
+  z-index: 9;
+}
+
+.artist div {
+  display: inline-block;
+  color: #fff;
+  font-size: 85%;
+}
+
+.artist p::before {
+  content: ' (';
+}
+
+.artist p::after {
+  content: ')';
+}
+
+.curator-notes {
+  background: #fff;
+  position: relative;
+  width: 93%;
+  margin: -40px auto 20px;
+  font-size: 80%;
+  padding: 4em 0 1em;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 1px 0 3px #ccc;
+}
+
+.curator-notes p {
+  margin: 0 2em 1.75rem;
 }
 
 /* ---------- Typography ----------- */
@@ -88,7 +124,12 @@ h6,
 h1,
 .heading-a {
   font-size: 1.2rem;
-  color: #000;
+  font-weight: 600;
+  color: #fff;
+  position: absolute;
+  padding-left: 1rem;
+  top: 0;
+  z-index: 9;
 }
 
 h2,
@@ -209,7 +250,6 @@ ul ul {
 body {
   background: #fff;
   color: #2a2a2a;
-  padding: 0 2em;
 }
 
 .amp-header {
@@ -291,7 +331,6 @@ a:active,
 }
 
 .amp-header__content {
-  padding: 0.75rem .9375rem 0.75rem;
 }
 
 

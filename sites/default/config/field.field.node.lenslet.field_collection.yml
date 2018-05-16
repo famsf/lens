@@ -1,0 +1,29 @@
+uuid: f536599a-7fe2-454e-aaa3-b324267be482
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_collection
+    - node.type.lenslet
+    - taxonomy.vocabulary.collection
+id: node.lenslet.field_collection
+field_name: field_collection
+entity_type: node
+bundle: lenslet
+label: Collection
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      collection: collection
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
