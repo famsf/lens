@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.lenslet.body
     - field.field.node.lenslet.field_artist
+    - field.field.node.lenslet.field_badges
     - field.field.node.lenslet.field_collection
     - field.field.node.lenslet.field_country
     - field.field.node.lenslet.field_date
@@ -24,7 +25,7 @@ third_party_settings:
     group_artist_and_date:
       children: {  }
       parent_name: ''
-      weight: 20
+      weight: 12
       format_type: html_element
       format_settings:
         id: ''
@@ -36,6 +37,7 @@ third_party_settings:
         effect: none
         speed: fast
       label: 'Artist and date'
+      region: hidden
 id: node.lenslet.default
 targetEntityType: node
 bundle: lenslet
@@ -122,4 +124,5 @@ content:
     type: text_default
     region: content
 hidden:
+  field_badges: true
   links: true

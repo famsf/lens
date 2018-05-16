@@ -1,0 +1,33 @@
+uuid: 410652dc-d165-40bf-b2f0-ad9a71d364fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.badges.field_badge_image
+    - image.style.badge32
+    - taxonomy.vocabulary.badges
+  module:
+    - image
+    - text
+id: taxonomy_term.badges.default
+targetEntityType: taxonomy_term
+bundle: badges
+mode: default
+content:
+  description:
+    type: text_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_badge_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: badge32
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden: {  }

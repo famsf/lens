@@ -1,0 +1,9 @@
+uuid: 8179c68e-4491-4240-a4af-31097b4511cf
+langcode: en
+status: true
+dependencies: {  }
+name: Badges
+vid: badges
+description: 'Artwork badge categories'
+hierarchy: 0
+weight: 0

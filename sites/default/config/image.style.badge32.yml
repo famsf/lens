@@ -1,0 +1,15 @@
+uuid: 75b6f2ca-8c1f-4f3e-af78-eb9541e99237
+langcode: en
+status: true
+dependencies: {  }
+name: badge32
+label: badge32
+effects:
+  cf0b6e3f-f014-4a7a-9d1b-e98c560d96b1:
+    uuid: cf0b6e3f-f014-4a7a-9d1b-e98c560d96b1
+    id: image_scale
+    weight: 1
+    data:
+      width: 32
+      height: null
+      upscale: false
