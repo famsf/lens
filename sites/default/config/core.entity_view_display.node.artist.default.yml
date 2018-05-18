@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.artist.field_born
     - field.field.node.artist.field_det
     - field.field.node.artist.field_died
+    - field.field.node.artist.field_gender
     - field.field.node.artist.field_image
     - field.field.node.artist.field_nationality
     - node.type.artist
@@ -22,12 +23,12 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
   field_born:
-    weight: 102
+    weight: 3
     label: above
     settings:
       thousand_separator: ''
@@ -36,7 +37,7 @@ content:
     type: number_integer
     region: content
   field_det:
-    weight: 105
+    weight: 6
     label: above
     settings:
       link_to_entity: false
@@ -44,7 +45,7 @@ content:
     type: string
     region: content
   field_died:
-    weight: 103
+    weight: 4
     label: above
     settings:
       thousand_separator: ''
@@ -52,8 +53,16 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: content
+  field_gender:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_image:
-    weight: 106
+    weight: 7
     label: above
     settings:
       image_style: ''
@@ -62,7 +71,7 @@ content:
     type: image
     region: content
   field_nationality:
-    weight: 104
+    weight: 1
     label: above
     settings:
       link_to_entity: false
@@ -70,6 +79,8 @@ content:
     type: string
     region: content
   links:
-    weight: 100
+    weight: 0
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

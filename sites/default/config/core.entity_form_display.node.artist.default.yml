@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.artist.field_born
     - field.field.node.artist.field_det
     - field.field.node.artist.field_died
+    - field.field.node.artist.field_gender
     - field.field.node.artist.field_image
     - field.field.node.artist.field_nationality
     - image.style.thumbnail
@@ -56,6 +57,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_gender:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_image:
     weight: 26
