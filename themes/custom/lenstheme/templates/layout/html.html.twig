@@ -36,21 +36,21 @@
         "@type": "ARArtifact",
         "anchor": {
           "@type": "VisualArtwork",
-          "name": "{{ title }}",
+          "name": "{{ node_title }}",
           "creator": [
           {
             "@type": "Person",
-            "name": "{{ artist }}"
+            "name": "{{ field_artist_name }}"
           }],
-          "dateCreated": "{{ date }}"
+          "dateCreated": "{{ field_date }}"
         },
   
         "asset": {
           "@type": "WebPage",
           "name": "MuseumInfo: Sacramento Indian",
-          "description": "A behind-the-scenes look at Sacramento Indian",
-          "image": "{{ image }}",
-          "url": "{{ current_path }}"
+          "description": "A behind-the-scenes look at {{ node_title }}",
+          "image": "{{ field_image }}",
+          "url": "{{ url('<current>') }}?amp"
         }
       }
     </script>

@@ -11,37 +11,9 @@
  * Implements template_preprocess_html().
  */
 function lenstheme_preprocess_html(&$variables) {
-    //field_theme
-    // Find out what type of entity we have.
-    $route = explode('.', Drupal::routeMatch()->getRouteName());
-    // Get the hero from the entity if it exists.
-    /** @var  Drupal\node\Entity\Node $entity */
-    $entity = \Drupal::routeMatch()->getParameter($route[1]);
-    if (NULL !== $entity
-        && method_exists($entity, 'hasField')) {
-        if ($entity->hasField('field_date') && NULL !== $entity->get('field_date')) {
-            $date = $entity->get('field_date')->value;
-            if (!empty($date))
-                $variables['date'] = $date;
-        }
-        if ($entity->hasField('field_artist_name') && NULL !== $entity->get('field_artist_name')) {
-           $artist_name = $entity->get('field_artist_name')->value;
-            if (!empty($artist_name))
-                $variables['artist'] = $artist_name;
-        }
-        if ($entity->hasField('title') && NULL !== $entity->get('title')) {
-            $title = $entity->get('title')->value;
-            if(!empty($label))
-                $variables['title'] = $title;
-        }
-         if ($entity->hasField('field_image') && NULL !== $entity->get('field_image')) {
-            $image = $entity->get('field_image')->fileuri;
-            if(!empty($image))
-                $variables['image'] = $image;
-        }
-    }
-    
-    $current_path = \Drupal::service('path.current')->getPath();
-    $variables['current_path'] = $current_path;
-
+  $node = \Drupal::request()->attributes->get('node');
+  $variables['node_title'] = $node->getTitle();
+  $variables['field_artist_name'] = $node->get('field_artist_name')->value;
+  $variables['field_date'] = $node->get('field_date')->value;
+  $variables['field_image'] = file_create_url($node->get('field_image')->entity->getFileUri());
 }
