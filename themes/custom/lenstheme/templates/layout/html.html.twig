@@ -24,13 +24,35 @@
  * @see template_preprocess_html()
  */
 #}
+
 <!doctype html>
 <html amp{{ html_attributes }}>
   <head>
     <head-placeholder token="{{ placeholder_token|raw }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
     <script type="application/ld+json">
-      {% include active_theme_path() ~ '/templates/metadata/lenslet-metadata.html.twig' %}
+      {
+        "@context": "http://schema.org",
+        "@type": "ARArtifact",
+        "anchor": {
+          "@type": "VisualArtwork",
+          "name": "{{ title }}",
+          "creator": [
+          {
+            "@type": "Person",
+            "name": "{{ artist }}"
+          }],
+          "dateCreated": "{{ date }}"
+        },
+  
+        "asset": {
+          "@type": "WebPage",
+          "name": "MuseumInfo: Sacramento Indian",
+          "description": "A behind-the-scenes look at Sacramento Indian",
+          "image": "{{ image }}",
+          "url": "http://dev-amp-sandbox.pantheonsite.io/lenslet/sacramento-indian"
+        }
+      }
     </script>
     <style amp-boilerplate>{% spaceless %}{% include '@amptheme/amp-css/amp-boilerplate-styles-min.html.twig' %}{% endspaceless %}</style><noscript><style amp-boilerplate>{% spaceless %}{% include '@amptheme/amp-css/amp-boilerplate-styles-noscript-min.html.twig' %}{% endspaceless %}</style></noscript>
     <style amp-custom>

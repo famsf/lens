@@ -38,18 +38,15 @@ body {
   z-index: 9;
 }
 
-.artist div {
+.artist div,
+.artist .date {
   display: inline-block;
   color: #fff;
   font-size: 85%;
 }
 
-.artist p::before {
-  content: ' (';
-}
-
-.artist p::after {
-  content: ')';
+.artist .date p {
+  display: inline;
 }
 
 .amp-img {
@@ -121,7 +118,9 @@ amp-img::before {
 }
 
 .badges,
-.art-details {
+.art-details,
+.about-the-artist,
+.views-element-container {
   background: #fff;
   position: relative;
   width: 93%;
@@ -132,7 +131,9 @@ amp-img::before {
   box-shadow: 0 1px 5px #ccc;
 }
 
-.badges-inner {
+.badges-inner,
+.artist-inner,
+.view-about-the-artist {
   margin: 0 2em;
 }
 
@@ -163,8 +164,13 @@ amp-img::before {
 
 /* ---------- Typography ----------- */
 
+@font-face {
+  font-family: "Google Sans";
+  src: url("/themes/custom/lenstheme/fonts/GoogleSans-Regular.ttf");
+}
+
 body {
-  font-family: arial, sans-serif;
+  font-family: "Google Sans", sans-serif;
   font-size: 100%;
   line-height: 1.5;
   word-wrap: break-word;
