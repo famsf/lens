@@ -12,7 +12,7 @@ field_name: field_image
 entity_type: node
 bundle: lenslet
 label: Image
-description: ''
+description: 'Image size should be 1600x1200px or larger.'
 required: false
 translatable: true
 default_value: {  }

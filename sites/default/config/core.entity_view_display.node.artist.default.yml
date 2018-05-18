@@ -7,12 +7,9 @@ dependencies:
     - field.field.node.artist.field_born
     - field.field.node.artist.field_det
     - field.field.node.artist.field_died
-    - field.field.node.artist.field_gender
-    - field.field.node.artist.field_image
     - field.field.node.artist.field_nationality
     - node.type.artist
   module:
-    - image
     - text
     - user
 id: node.artist.default
@@ -52,23 +49,6 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
-    region: content
-  field_gender:
-    weight: 5
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_image:
-    weight: 7
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
     region: content
   field_nationality:
     weight: 1

@@ -1,15 +1,15 @@
-uuid: 65644e0c-c1f3-4119-a347-7bc747e1a5db
+uuid: c996fb8a-8320-4616-8e4e-0d49a501a952
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_gender
-    - node.type.artist
-id: node.artist.field_gender
-field_name: field_gender
+    - field.storage.node.field_region
+    - node.type.lenslet
+id: node.lenslet.field_region
+field_name: field_region
 entity_type: node
-bundle: artist
-label: Gender
+bundle: lenslet
+label: Region
 description: ''
 required: false
 translatable: false

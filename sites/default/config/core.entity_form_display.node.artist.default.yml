@@ -7,13 +7,9 @@ dependencies:
     - field.field.node.artist.field_born
     - field.field.node.artist.field_det
     - field.field.node.artist.field_died
-    - field.field.node.artist.field_gender
-    - field.field.node.artist.field_image
     - field.field.node.artist.field_nationality
-    - image.style.thumbnail
     - node.type.artist
   module:
-    - image
     - path
     - text
 id: node.artist.default
@@ -57,22 +53,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
-    region: content
-  field_gender:
-    weight: 27
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_image:
-    weight: 26
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
     region: content
   field_nationality:
     weight: 2
