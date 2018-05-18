@@ -5,7 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.amp
     - field.field.node.lenslet.body
+    - field.field.node.lenslet.field_about_the_artist
     - field.field.node.lenslet.field_artist
+    - field.field.node.lenslet.field_artist_name
     - field.field.node.lenslet.field_badges
     - field.field.node.lenslet.field_collection
     - field.field.node.lenslet.field_country
@@ -48,7 +50,7 @@ third_party_settings:
       region: content
     group_artist_and_date:
       children:
-        - field_artist
+        - field_artist_name
         - field_date
       parent_name: ''
       weight: 0
@@ -69,6 +71,11 @@ targetEntityType: node
 bundle: lenslet
 mode: amp
 content:
+  about_the_artist_entity_view_1:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   body:
     label: hidden
     type: text_default
@@ -76,13 +83,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_artist:
-    type: entity_reference_label
-    weight: 0
+  field_artist_name:
+    type: amp_text
+    weight: 1
     region: content
     label: hidden
-    settings:
-      link: false
+    settings: {  }
     third_party_settings: {  }
   field_badges:
     type: entity_reference_entity_view
@@ -111,7 +117,7 @@ content:
     third_party_settings: {  }
   field_date:
     type: amp_text
-    weight: 1
+    weight: 2
     region: content
     label: hidden
     settings: {  }
@@ -149,5 +155,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_about_the_artist: true
+  field_artist: true
   field_item_id: true
   links: true

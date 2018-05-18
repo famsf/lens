@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.lenslet.body
+    - field.field.node.lenslet.field_about_the_artist
     - field.field.node.lenslet.field_artist
+    - field.field.node.lenslet.field_artist_name
     - field.field.node.lenslet.field_badges
     - field.field.node.lenslet.field_collection
     - field.field.node.lenslet.field_country
@@ -43,12 +45,23 @@ targetEntityType: node
 bundle: lenslet
 mode: default
 content:
+  about_the_artist_entity_view_1:
+    weight: 10
+    region: content
   body:
     label: hidden
     type: text_default
     weight: 2
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_about_the_artist:
+    weight: 13
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_artist:
     weight: 0
@@ -58,6 +71,14 @@ content:
       view_mode: default
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
+  field_artist_name:
+    weight: 14
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_collection:
     weight: 8

@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.lenslet.body
+    - field.field.node.lenslet.field_about_the_artist
     - field.field.node.lenslet.field_artist
+    - field.field.node.lenslet.field_artist_name
     - field.field.node.lenslet.field_badges
     - field.field.node.lenslet.field_collection
     - field.field.node.lenslet.field_country
@@ -60,14 +62,22 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_artist:
-    weight: 1
+  field_about_the_artist:
+    weight: 14
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_artist_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_badges:
     weight: 6
@@ -187,4 +197,5 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_artist: true

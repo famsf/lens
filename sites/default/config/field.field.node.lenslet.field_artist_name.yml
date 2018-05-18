@@ -1,0 +1,19 @@
+uuid: 42b62d32-b635-419a-adab-5c4ca47dc874
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_artist_name
+    - node.type.lenslet
+id: node.lenslet.field_artist_name
+field_name: field_artist_name
+entity_type: node
+bundle: lenslet
+label: 'Artist name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

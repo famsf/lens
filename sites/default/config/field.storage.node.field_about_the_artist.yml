@@ -1,19 +1,19 @@
-uuid: cb9d3e22-9362-4721-ba36-181cd62d8839
+uuid: 5d3a8d56-9924-4e20-8652-ee32afa54c60
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: node.field_badges
-field_name: field_badges
+    - views
+id: node.field_about_the_artist
+field_name: field_about_the_artist
 entity_type: node
 type: entity_reference
 settings:
-  target_type: taxonomy_term
+  target_type: view
 module: core
 locked: false
-cardinality: 5
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
