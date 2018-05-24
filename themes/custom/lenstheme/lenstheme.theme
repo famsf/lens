@@ -9,11 +9,20 @@
 
 /**
  * Implements template_preprocess_html().
+ *
+ * Get some variables from the Lenslet node to plop into the ld+json
+ * meta tags in <head>, in html.html.twig
  */
+
 function lenstheme_preprocess_html(&$variables) {
   $node = \Drupal::request()->attributes->get('node');
   $variables['node_title'] = $node->getTitle();
   $variables['field_artist_name'] = $node->get('field_artist_name')->value;
   $variables['field_date'] = $node->get('field_date')->value;
   $variables['field_image'] = file_create_url($node->get('field_image')->entity->getFileUri());
+}
+
+function lenstheme_preprocess_field_artist(&$variables) {
+  $node = \Drupal::request()->attributes->get('node');
+  $variables['field_artist_name'] = $node->get('field_artist_name')->value;
 }

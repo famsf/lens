@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="width:0;height:0;position:absolute;overflow:hidden;">
+  <defs>
+<symbol viewBox="0 0 1024 574" aria-labelledby="cmsi-ant-down-title" id="si-ant-down"><title id="cmsi-ant-down-title">icon down</title><path d="M1015 10q-10-10-23-10t-23 10L512 492 55 10Q45 0 32 0T9 10Q0 20 0 34t9 24l480 506q10 10 23 10t23-10l480-506q9-10 9-24t-9-24z"/></symbol>
+<symbol viewBox="0 0 998 582" aria-labelledby="arsi-awesome-angle-down-title" id="si-awesome-angle-down"><title id="arsi-awesome-angle-down-title">icon angle-down</title><path d="M998 83q0 13-10 23L522 572q-10 10-23 10t-23-10L10 106Q0 96 0 83t10-23l50-50Q70 0 83 0t23 10l393 393L892 10q10-10 23-10t23 10l50 50q10 10 10 23z"/></symbol>
+  </defs>
+</svg>

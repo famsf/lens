@@ -45,15 +45,37 @@ body {
   font-size: 85%;
 }
 
+.nationality {
+  color: #8a8a8a;
+  margin-bottom: 1rem;
+}
+
 .artist .date p {
   display: inline;
+}
+
+.artist-inner h2 {
+  margin: 1rem 0 .25rem;
+}
+
+.artist-details {
+  margin-bottom: 2em;
+}
+
+.artist-detail-item {
+  display: inline-block;
+  margin-right: 2.5rem;
+}
+
+.artist-label {
+  color: #7b4c3a;
 }
 
 .amp-img {
   position: relative;
 }
 
-amp-img::before {
+.image-wrapper amp-img::before {
   content: ' ';
   display: block;
   position: absolute;
@@ -93,12 +115,16 @@ amp-img::before {
   width: 93%;
   margin: 0 auto 20px;
   padding: .3em 0;
+  height: 2.3em;
   border-radius: 0 0 5px 5px;
   box-shadow: 0 1px 5px #ccc;
   display: block;
   background: #fff;
   text-align: center;
   color: #4a4a4a;
+  background: #fff url(/themes/custom/lenstheme/images/arrow-down.png) center no-repeat;
+  background-size: 16px auto;
+  z-index: 999;
 } 
 
 .curator-notes::before {
@@ -134,7 +160,7 @@ amp-img::before {
 .badges-inner,
 .artist-inner,
 .view-about-the-artist {
-  margin: 0 2em;
+  margin: 0 2em 1em;
 }
 
 .badge {
@@ -244,7 +270,7 @@ h3,
 
 h4,
 .heading-d {
-  font-size: 0.875rem;
+  font-size: 0.825rem;
 }
 
 h5,

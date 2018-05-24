@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.amp
     - field.field.node.lenslet.body
-    - field.field.node.lenslet.field_about_the_artist
     - field.field.node.lenslet.field_artist
     - field.field.node.lenslet.field_artist_name
     - field.field.node.lenslet.field_badges
@@ -16,6 +15,7 @@ dependencies:
     - field.field.node.lenslet.field_image
     - field.field.node.lenslet.field_item_id
     - field.field.node.lenslet.field_medium
+    - field.field.node.lenslet.field_region
     - field.field.node.lenslet.field_rights
     - image.style.lenslet_crop
     - node.type.lenslet
@@ -83,6 +83,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_artist:
+    type: entity_reference_entity_view
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      view_mode: amp
+      link: false
+    third_party_settings: {  }
   field_artist_name:
     type: amp_text
     weight: 1
@@ -155,7 +164,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_about_the_artist: true
-  field_artist: true
   field_item_id: true
+  field_region: true
   links: true

@@ -1,8 +1,9 @@
-uuid: 55bcc526-29a8-484f-bba9-1165b7bac6f1
+uuid: 4f762cf0-54a5-4cbb-874e-245873aa1eb4
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.amp
     - field.field.node.artist.body
     - field.field.node.artist.field_born
     - field.field.node.artist.field_det
@@ -12,10 +13,10 @@ dependencies:
   module:
     - text
     - user
-id: node.artist.default
+id: node.artist.amp
 targetEntityType: node
 bundle: artist
-mode: default
+mode: amp
 content:
   body:
     label: hidden
