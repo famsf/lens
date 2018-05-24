@@ -68,7 +68,7 @@
 
   <div{{ content_attributes }}>
     <h2><strong>{{ label }}</strong></h2>
-    <div class="nationality">{{ content.field_nationality }}</div>
+    <div class="nationality">{{ node.field_nationality.value }}</div>
     <div class="artist-details">
       <div class="artist-detail-item">
         <div class="artist-label">{{ node.field_born.fieldDefinition.label }}:</div>
