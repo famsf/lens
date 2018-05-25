@@ -212,7 +212,46 @@ body {
 .badge h2 a {
   color: #3a3a3a;
 }
+
+/* ------- Scrolling section -------*/
+
+.view-related-works {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin: 0 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.view-related-works .views-row {
+  display: inline-block;
+  width: 250px;
+  border-radius: 5px;
+  margin: 1em .5em 1em .1em;
+  box-shadow: 0 1px 3px #ccc;
+  overflow: hidden;
+}
+
+.view-related-works::-webkit-scrollbar {
+  display: none;
+  color: #fff;
+}
+
+.view-related-works .views-field-title {
+  margin: 15px 0 0 15px;
+}
+
+.view-related-works .views-field-field-date {
+  margin: 0 0 15px 15px;
+  color: #8a8a8a;
+  font-size: 90%;
+}
   
+.view-related-works .views-field-title a,
+.view-related-works .views-field-title a:visited {
+  color: #2a2a2a;
+  border-bottom: none;
+}
   
 
 /* ---------- Typography ----------- */

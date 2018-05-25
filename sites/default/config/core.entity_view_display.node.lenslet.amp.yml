@@ -163,6 +163,11 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
+  related_works_entity_view_1:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_item_id: true
   field_region: true

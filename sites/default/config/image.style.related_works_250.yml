@@ -1,0 +1,17 @@
+uuid: b688a417-8edd-49b5-bdb0-5f9e9f8f7052
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: related_works_250
+label: 'Related works 250'
+effects:
+  b7a36a2b-019a-4efa-a8de-a5d076b7458f:
+    uuid: b7a36a2b-019a-4efa-a8de-a5d076b7458f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 250
+      height: 141
+      crop_type: focal_point
