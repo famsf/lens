@@ -47,9 +47,9 @@
   
         "asset": {
           "@type": "WebPage",
-          "name": "MuseumInfo: {{ node_title }}",
-          "description": "A behind-the-scenes look at {{ node_title }}",
-          "image": "{{ field_image }}",
+          "name": "de Young Museum: {{ node_title }}",
+          "description": "{{ node_teaser|striptags|raw|length > 100 ? node_teaser|striptags|slice(0, 100) ~ '...' : node_teaser }}",
+          "image": "{{ base_url  }}/themes/custom/lenstheme/images/dy-logo.png",
           "url": "{{ url('<current>') }}?amp"
         }
       }

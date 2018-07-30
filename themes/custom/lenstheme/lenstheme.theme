@@ -20,4 +20,6 @@ function lenstheme_preprocess_html(&$variables) {
   $variables['field_artist_name'] = $node->get('field_artist_name')->value;
   $variables['field_date'] = $node->get('field_date')->value;
   $variables['field_image'] = file_create_url($node->get('field_image')->entity->getFileUri());
+  $variables['node_teaser'] = $node->get('body')->value;
+  $variables['base_url'] = $GLOBALS['base_url'];
 }
