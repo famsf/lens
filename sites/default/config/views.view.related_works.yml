@@ -59,12 +59,14 @@ display:
           items_per_page: 6
           offset: 0
       style:
-        type: default
+        type: html_list
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
-          uses_fields: false
+          type: ul
+          wrapper_class: item-list
+          class: ''
       row:
         type: fields
         options:
@@ -138,8 +140,8 @@ display:
           alter:
             alter_text: false
             text: '<a href="{{ view_node }}?amp">{{ field_image }}</a>'
-            make_link: false
-            path: ''
+            make_link: true
+            path: '{{ view_node }}?amp'
             absolute: false
             external: false
             replace_spaces: false

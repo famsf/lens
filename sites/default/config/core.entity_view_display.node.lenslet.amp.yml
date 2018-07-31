@@ -17,7 +17,7 @@ dependencies:
     - field.field.node.lenslet.field_medium
     - field.field.node.lenslet.field_region
     - field.field.node.lenslet.field_rights
-    - image.style.lenslet_crop
+    - image.style.lenslet_header
     - node.type.lenslet
   module:
     - amp
@@ -144,7 +144,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: lenslet_crop
+      image_style: lenslet_header
       image_link: ''
       amp_layout: responsive
       amp_fixed_height: '300'
