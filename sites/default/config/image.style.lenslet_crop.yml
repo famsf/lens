@@ -5,7 +5,7 @@ dependencies:
   module:
     - focal_point
 name: lenslet_crop
-label: 'Lenslet crop'
+label: 'Lenslet crop landscape'
 effects:
   81141bfe-bf86-492f-9379-b6c615b1a6b9:
     uuid: 81141bfe-bf86-492f-9379-b6c615b1a6b9

@@ -1,7 +1,17 @@
 uuid: fa2d375f-af0e-4248-b9c8-db4759a15023
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - focal_point
 name: lens
-label: 'Lenslet image'
-effects: {  }
+label: 'Lenslet crop portrait'
+effects:
+  302fc9d1-d44b-4d6a-9cb6-cbe4ee204513:
+    uuid: 302fc9d1-d44b-4d6a-9cb6-cbe4ee204513
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 600
+      crop_type: focal_point

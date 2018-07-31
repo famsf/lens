@@ -1,0 +1,20 @@
+uuid: 95482a7e-f7b2-45f6-a712-5e53a1ae79bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.lens
+    - image.style.lenslet_crop
+  module:
+    - image_effects
+name: lenslet_header
+label: 'Lenslet header'
+effects:
+  537c8895-8e6c-4f25-831e-8cb4d162527d:
+    uuid: 537c8895-8e6c-4f25-831e-8cb4d162527d
+    id: image_effects_aspect_switcher
+    weight: 1
+    data:
+      landscape_image_style: lenslet_crop
+      portrait_image_style: lens
+      ratio_adjustment: !!float 1
