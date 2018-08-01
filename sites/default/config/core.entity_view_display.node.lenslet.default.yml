@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.lenslet.body
+    - field.field.node.lenslet.feeds_item
     - field.field.node.lenslet.field_artist
     - field.field.node.lenslet.field_artist_name
     - field.field.node.lenslet.field_badges
@@ -144,6 +145,10 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
+  related_works_entity_view_1:
+    weight: 10
+    region: content
 hidden:
+  feeds_item: true
   field_badges: true
   links: true

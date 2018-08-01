@@ -1,0 +1,172 @@
+uuid: 158b43d1-dd18-4294-bc05-6f2c9021524a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.lenslet.body
+    - field.field.node.lenslet.field_artist
+    - field.field.node.lenslet.field_artist_name
+    - field.field.node.lenslet.field_country
+    - field.field.node.lenslet.field_date
+    - field.field.node.lenslet.field_dimensions
+    - field.field.node.lenslet.field_image
+    - field.field.node.lenslet.field_item_id
+    - field.field.node.lenslet.field_medium
+    - field.field.node.lenslet.field_region
+    - field.field.node.lenslet.field_rights
+    - node.type.lenslet
+  module:
+    - node
+label: 'Lenslet import'
+id: lenslet_import
+description: 'Import data from CSV for Lenslet node creation.'
+import_period: -1
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  update_existing: 0
+  update_non_existent: _keep
+  expire: -1
+  owner_feed_author: false
+  owner_id: 1
+  authorize: true
+  skip_hash_check: false
+  values:
+    type: lenslet
+custom_sources:
+  title:
+    label: Title
+    value: Title
+    machine_name: title
+  artist_name:
+    label: 'Artist name'
+    value: 'Artist name'
+    machine_name: artist_name
+  description:
+    label: Description
+    value: Description
+    machine_name: description
+  country:
+    label: Country
+    value: Country
+    machine_name: country
+  credit:
+    label: Credit
+    value: Credit
+    machine_name: credit
+  date:
+    label: Date
+    value: Date
+    machine_name: date
+  dimensions:
+    label: Dimensions
+    value: Dimensions
+    machine_name: dimensions
+  item_id:
+    label: 'Item ID'
+    value: 'Item ID'
+    machine_name: item_id
+  medium:
+    label: Medium
+    value: Medium
+    machine_name: medium
+  region:
+    label: Region
+    value: Region
+    machine_name: region
+  image:
+    label: Image
+    value: Image
+    machine_name: image
+  image_alt_text:
+    label: 'Image alt text'
+    value: 'Image alt text'
+    machine_name: image_alt_text
+  artist:
+    label: Artist
+    value: Artist
+    machine_name: artist
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    unique: {  }
+  -
+    target: field_artist_name
+    map:
+      value: artist_name
+    unique: {  }
+  -
+    target: body
+    map:
+      value: description
+      summary: ''
+    settings:
+      format: plain_text
+  -
+    target: field_country
+    map:
+      target_id: country
+    settings:
+      reference_by: name
+      autocreate: false
+  -
+    target: field_rights
+    map:
+      value: credit
+    settings:
+      format: plain_text
+  -
+    target: field_date
+    map:
+      value: date
+    unique: {  }
+  -
+    target: field_dimensions
+    map:
+      value: dimensions
+    unique: {  }
+  -
+    target: field_item_id
+    map:
+      value: item_id
+    unique: {  }
+  -
+    target: field_medium
+    map:
+      value: medium
+    unique: {  }
+  -
+    target: field_region
+    map:
+      value: region
+    unique: {  }
+  -
+    target: field_image
+    map:
+      target_id: image
+      alt: image_alt_text
+      title: ''
+    settings:
+      existing: 2
+      reference_by: filename
+      autocreate: false
+  -
+    target: field_artist
+    map:
+      target_id: artist
+    settings:
+      reference_by: title
+      autocreate: false
+      feeds_item: false
