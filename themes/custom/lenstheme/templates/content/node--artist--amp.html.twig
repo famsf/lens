@@ -70,18 +70,24 @@
     <h2><strong>{{ label }}</strong></h2>
     <div class="nationality">{{ node.field_nationality.value }}</div>
     <div class="artist-details">
-      <div class="artist-detail-item">
-        <div class="artist-label">{{ node.field_born.fieldDefinition.label }}:</div>
-        {{ node.field_born.value }}
-      </div>
-      <div class="artist-detail-item">
-        <div class="artist-label">{{ node.field_died.fieldDefinition.label }}:</div>
-        {{ node.field_died.value }}
-      </div>
-      <div class="artist-detail-item">
-        <div class="artist-label">{{ node.field_det.fieldDefinition.label }}:</div>
-        {{ node.field_det.value }}
-      </div>
+      {% if node.field_born.value|render is not empty %}
+        <div class="artist-detail-item">
+          <div class="artist-label">{{ node.field_born.fieldDefinition.label }}:</div>
+            {{ node.field_born.value }}
+        </div>
+      {% endif %}
+      {% if node.field_died.value|render is not empty %}
+        <div class="artist-detail-item">
+          <div class="artist-label">{{ node.field_died.fieldDefinition.label }}:</div>
+            {{ node.field_died.value }}
+        </div>
+      {% endif %}
+      {% if node.field_det.value|render is not empty %}
+        <div class="artist-detail-item">
+          <div class="artist-label">{{ node.field_det.fieldDefinition.label }}:</div>
+            {{ node.field_det.value }}
+          </div>
+      {% endif %}
     </div>
     {{ content.body }}
   </div>
