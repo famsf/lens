@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.amp
     - field.field.node.lenslet.body
+    - field.field.node.lenslet.feeds_item
     - field.field.node.lenslet.field_artist
     - field.field.node.lenslet.field_artist_name
     - field.field.node.lenslet.field_badges
@@ -34,7 +35,7 @@ third_party_settings:
         - field_dimensions
         - field_country
       parent_name: ''
-      weight: 4
+      weight: 3
       format_type: html_element
       format_settings:
         label: 'Artwork information'
@@ -53,7 +54,7 @@ third_party_settings:
         - field_artist_name
         - field_date
       parent_name: ''
-      weight: 0
+      weight: 6
       format_type: html_element
       format_settings:
         id: ''
@@ -64,8 +65,9 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
+        description: ''
       label: 'Artist and date'
-      region: content
+      region: hidden
 id: node.lenslet.amp
 targetEntityType: node
 bundle: lenslet
@@ -79,29 +81,22 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 2
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
   field_artist:
     type: entity_reference_entity_view
-    weight: 5
+    weight: 4
     region: content
     label: hidden
     settings:
       view_mode: amp
       link: false
     third_party_settings: {  }
-  field_artist_name:
-    type: amp_text
-    weight: 1
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_badges:
     type: entity_reference_entity_view
-    weight: 3
+    weight: 2
     region: content
     label: hidden
     settings:
@@ -124,13 +119,6 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-  field_date:
-    type: amp_text
-    weight: 2
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_dimensions:
     type: amp_text
     weight: 13
@@ -140,7 +128,7 @@ content:
     third_party_settings: {  }
   field_image:
     type: amp_image
-    weight: 1
+    weight: 0
     region: content
     label: hidden
     settings:
@@ -164,11 +152,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   related_works_entity_view_1:
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  feeds_item: true
+  field_artist_name: true
+  field_date: true
   field_item_id: true
   field_region: true
   links: true

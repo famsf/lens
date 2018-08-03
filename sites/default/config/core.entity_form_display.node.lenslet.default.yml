@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.lenslet.body
+    - field.field.node.lenslet.feeds_item
     - field.field.node.lenslet.field_artist
     - field.field.node.lenslet.field_artist_name
     - field.field.node.lenslet.field_badges
@@ -206,4 +207,5 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  feeds_item: true
