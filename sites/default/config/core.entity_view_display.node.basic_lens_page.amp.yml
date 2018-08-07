@@ -1,0 +1,25 @@
+uuid: fc22260d-8810-4146-887c-697046d7406c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.amp
+    - field.field.node.basic_lens_page.body
+    - node.type.basic_lens_page
+  module:
+    - text
+    - user
+id: node.basic_lens_page.amp
+targetEntityType: node
+bundle: basic_lens_page
+mode: amp
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  links: true

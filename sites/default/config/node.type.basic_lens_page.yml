@@ -1,0 +1,18 @@
+uuid: 9d0c45fc-2902-4c50-bb5d-5b1095bbf28b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Basic Lens page'
+type: basic_lens_page
+description: 'Basic page for various purposes that aren''t art-related.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

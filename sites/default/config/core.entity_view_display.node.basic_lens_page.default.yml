@@ -1,0 +1,28 @@
+uuid: 30c4796f-fe77-46fe-a06d-afed33c80226
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.basic_lens_page.body
+    - node.type.basic_lens_page
+  module:
+    - text
+    - user
+id: node.basic_lens_page.default
+targetEntityType: node
+bundle: basic_lens_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
