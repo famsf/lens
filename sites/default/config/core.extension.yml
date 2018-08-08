@@ -18,6 +18,7 @@ module:
   datetime: 0
   dblog: 0
   devel: 0
+  dropzonejs: 0
   dynamic_page_cache: 0
   editor: 0
   entity_reference_views_select: 0
@@ -39,6 +40,7 @@ module:
   kint: 0
   link: 0
   media: 0
+  media_bulk_upload: 0
   menu_ui: 0
   metatag: 0
   node: 0

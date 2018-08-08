@@ -1,0 +1,12 @@
+uuid: a424731a-7372-4f7d-a1d2-1ca7c6c71d60
+langcode: en
+status: true
+dependencies: {  }
+id: image_bulk_upload
+label: 'Image bulk upload'
+media_types:
+  image: image
+  audio: 0
+  file: 0
+  video: 0
+form_mode: default
