@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.lenslet.field_image
     - field.field.node.lenslet.field_item_id
     - field.field.node.lenslet.field_medium
+    - field.field.node.lenslet.field_question
     - field.field.node.lenslet.field_region
     - field.field.node.lenslet.field_rights
     - node.type.lenslet
@@ -96,6 +97,10 @@ custom_sources:
     label: Artist
     value: Artist
     machine_name: artist
+  question:
+    label: Question
+    value: Question
+    machine_name: question
 mappings:
   -
     target: title
@@ -170,3 +175,9 @@ mappings:
       reference_by: title
       autocreate: false
       feeds_item: false
+  -
+    target: field_question
+    map:
+      value: question
+    settings:
+      format: plain_text
