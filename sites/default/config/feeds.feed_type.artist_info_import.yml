@@ -24,7 +24,7 @@ fetcher_configuration:
   recursive_scan: false
 parser: csv
 parser_configuration:
-  delimiter: ','
+  delimiter: TAB
   no_headers: false
   line_limit: 100
 processor: 'entity:node'
