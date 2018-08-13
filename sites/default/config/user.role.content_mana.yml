@@ -57,6 +57,7 @@ permissions:
   - 'delete terms in badges'
   - 'delete terms in collection'
   - 'delete terms in country'
+  - 'dropzone upload files'
   - 'edit any artist content'
   - 'edit any audio media'
   - 'edit any file media'
