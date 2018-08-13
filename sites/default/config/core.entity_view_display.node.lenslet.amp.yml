@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.lenslet.field_image
     - field.field.node.lenslet.field_item_id
     - field.field.node.lenslet.field_medium
+    - field.field.node.lenslet.field_question
     - field.field.node.lenslet.field_region
     - field.field.node.lenslet.field_rights
     - image.style.lenslet_header
@@ -23,7 +24,6 @@ dependencies:
   module:
     - amp
     - field_group
-    - text
     - user
 third_party_settings:
   field_group:
@@ -35,7 +35,7 @@ third_party_settings:
         - field_dimensions
         - field_country
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: html_element
       format_settings:
         label: 'Artwork information'
@@ -51,10 +51,10 @@ third_party_settings:
       region: content
     group_artist_and_date:
       children:
-        - field_artist_name
         - field_date
+        - field_artist_name
       parent_name: ''
-      weight: 6
+      weight: 11
       format_type: html_element
       format_settings:
         id: ''
@@ -68,6 +68,41 @@ third_party_settings:
         description: ''
       label: 'Artist and date'
       region: hidden
+    group_description_content:
+      children:
+        - field_question
+        - body
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: curator-notes
+        description: ''
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+      label: 'Description content'
+      region: content
+    group_descripo:
+      children: {  }
+      parent_name: ''
+      weight: 2
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: curator-notes-after
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Description after'
+      region: content
 id: node.lenslet.amp
 targetEntityType: node
 bundle: lenslet
@@ -79,15 +114,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   body:
+    type: amp_text
+    weight: 11
+    region: content
     label: hidden
-    type: text_default
-    weight: 1
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_artist:
     type: entity_reference_entity_view
-    weight: 4
+    weight: 5
     region: content
     label: hidden
     settings:
@@ -96,7 +131,7 @@ content:
     third_party_settings: {  }
   field_badges:
     type: entity_reference_entity_view
-    weight: 2
+    weight: 3
     region: content
     label: hidden
     settings:
@@ -144,6 +179,13 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
+  field_question:
+    type: amp_text
+    weight: 10
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_rights:
     type: amp_text
     weight: 12
@@ -152,7 +194,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   related_works_entity_view_1:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

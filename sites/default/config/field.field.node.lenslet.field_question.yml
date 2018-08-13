@@ -1,0 +1,21 @@
+uuid: c2e4fee9-73db-4872-841e-3c6796d4ab0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_question
+    - node.type.lenslet
+  module:
+    - text
+id: node.lenslet.field_question
+field_name: field_question
+entity_type: node
+bundle: lenslet
+label: Question
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

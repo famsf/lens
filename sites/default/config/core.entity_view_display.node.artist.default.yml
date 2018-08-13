@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.artist.body
+    - field.field.node.artist.feeds_item
     - field.field.node.artist.field_born
     - field.field.node.artist.field_det
     - field.field.node.artist.field_died
@@ -59,4 +60,5 @@ content:
     type: string
     region: content
 hidden:
+  feeds_item: true
   links: true
