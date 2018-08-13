@@ -1,0 +1,23 @@
+uuid: c9a2a64f-f00e-4b74-b16b-5483094ed888
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.artist
+  module:
+    - feeds
+id: node.artist.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: artist
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

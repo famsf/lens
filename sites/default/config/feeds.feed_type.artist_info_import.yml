@@ -1,0 +1,103 @@
+uuid: 89607f5a-96c7-4c42-8b2a-7e9f3dbbfe85
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.artist.title
+    - field.field.node.artist.body
+    - field.field.node.artist.field_born
+    - field.field.node.artist.field_det
+    - field.field.node.artist.field_died
+    - field.field.node.artist.field_nationality
+    - node.type.artist
+  module:
+    - node
+label: 'Artist info import'
+id: artist_info_import
+description: 'Import artist bio fields.'
+import_period: 3600
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  update_existing: 2
+  update_non_existent: _keep
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+  authorize: true
+  skip_hash_check: false
+  values:
+    type: artist
+custom_sources:
+  name:
+    label: Name
+    value: Name
+    machine_name: name
+  bio:
+    label: Bio
+    value: Bio
+    machine_name: bio
+  born:
+    label: Born
+    value: Born
+    machine_name: born
+  died:
+    label: Died
+    value: Died
+    machine_name: died
+  nationality:
+    label: Nationality
+    value: Nationality
+    machine_name: nationality
+  death_place:
+    label: 'Death place'
+    value: 'Death place'
+    machine_name: death_place
+  death_fun:
+    label: 'Death fun'
+    value: 'Death fun'
+    machine_name: death_fun
+mappings:
+  -
+    target: title
+    map:
+      value: name
+    unique:
+      value: '1'
+  -
+    target: body
+    map:
+      value: bio
+      summary: ''
+    settings:
+      format: full_html
+  -
+    target: field_born
+    map:
+      value: born
+  -
+    target: field_died
+    map:
+      value: died
+  -
+    target: field_nationality
+    map:
+      value: nationality
+    unique:
+      value: '1'
+  -
+    target: field_det
+    map:
+      value: death_place
+    unique:
+      value: '1'
