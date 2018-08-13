@@ -118,16 +118,23 @@ body {
   position: relative;
   width: 93%;
   margin: -40px auto 0;
-  font-size: 73%;
-  padding: 3em 0 1em;
+  font-size: 85%;
+  padding: 2em 0 1em;
   border-radius: 5px 5px 0 0;
   box-shadow: 0 1px 5px #ccc;
   z-index: 9;
 }
 
 .curator-notes p {
-  margin: 0 2em 1.75rem;
-  text-align: center;
+  margin: 0 2em 1.5rem;
+  text-align: left;
+  color: #7a7a7a;
+}
+
+.question {
+  margin: 0 1.7em 1rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .curator-notes h3 {
@@ -136,10 +143,9 @@ body {
   font-weight: 600;
 }
 
-.curator-notes-after {
-  position: relative;
-  width: 93%;
-  margin: 0 auto 20px;
+.curator-notes::after {
+  content: "";
+  margin: 0 auto -20px;
   padding: .3em 0;
   height: 2.3em;
   border-radius: 0 0 5px 5px;
@@ -151,18 +157,6 @@ body {
   background: #fff url(/themes/custom/lenstheme/images/arrow-down.png) center no-repeat;
   background-size: 12px auto;
   z-index: 999;
-} 
-
-.curator-notes::before {
-  background: #333 url(/themes/custom/lenstheme/images/curator.jpg) center no-repeat;
-  width: 52px;
-  height: 52px;
-  display: block;
-  margin: 0 auto;
-  content: ' ';
-  margin-top: -70px;
-  border-radius: 50%;
-  border: 9px solid #fff;
 }
 
 .curator-notes h3 {
@@ -181,6 +175,10 @@ body {
   padding: 1em 0 ;
   border-radius: 5px;
   box-shadow: 0 1px 5px #ccc;
+}
+
+.art-details {
+  margin-top: 25px;
 }
 
 .badges-inner,
