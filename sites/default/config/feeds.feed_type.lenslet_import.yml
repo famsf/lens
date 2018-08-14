@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.lenslet.body
     - field.field.node.lenslet.field_artist
     - field.field.node.lenslet.field_artist_name
+    - field.field.node.lenslet.field_collection
     - field.field.node.lenslet.field_country
     - field.field.node.lenslet.field_date
     - field.field.node.lenslet.field_dimensions
@@ -101,6 +102,10 @@ custom_sources:
     label: Question
     value: Question
     machine_name: question
+  collection:
+    label: Collection
+    value: Collection
+    machine_name: collection
 mappings:
   -
     target: title
@@ -181,3 +186,10 @@ mappings:
       value: question
     settings:
       format: plain_text
+  -
+    target: field_collection
+    map:
+      target_id: collection
+    settings:
+      reference_by: name
+      autocreate: false
