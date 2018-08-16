@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.lenslet.body
     - field.field.node.lenslet.field_artist
     - field.field.node.lenslet.field_artist_name
+    - field.field.node.lenslet.field_artwork_location
     - field.field.node.lenslet.field_collection
     - field.field.node.lenslet.field_country
     - field.field.node.lenslet.field_date
@@ -106,6 +107,10 @@ custom_sources:
     label: Collection
     value: Collection
     machine_name: collection
+  '':
+    label: ''
+    value: ''
+    machine_name: ''
 mappings:
   -
     target: title
@@ -193,3 +198,10 @@ mappings:
     settings:
       reference_by: name
       autocreate: false
+  -
+    target: field_artwork_location
+    map:
+      target_id: ''
+    settings:
+      reference_by: name
+      autocreate: '1'
