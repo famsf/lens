@@ -1,0 +1,9 @@
+uuid: c34166e8-8bbe-4da8-ba90-1f7a45eb0dc3
+langcode: en
+status: true
+dependencies: {  }
+name: Location
+vid: location
+description: 'Gallery location for works of art'
+hierarchy: 0
+weight: 0
