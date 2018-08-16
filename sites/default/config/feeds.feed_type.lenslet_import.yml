@@ -111,6 +111,10 @@ custom_sources:
     label: ''
     value: ''
     machine_name: ''
+  artwork_location:
+    label: 'Artwork location'
+    value: 'Artwork location'
+    machine_name: artwork_location
 mappings:
   -
     target: title
@@ -201,7 +205,7 @@ mappings:
   -
     target: field_artwork_location
     map:
-      target_id: ''
+      target_id: artwork_location
     settings:
       reference_by: name
       autocreate: '1'
