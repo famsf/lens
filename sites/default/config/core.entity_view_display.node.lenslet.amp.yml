@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.lenslet.feeds_item
     - field.field.node.lenslet.field_artist
     - field.field.node.lenslet.field_artist_name
+    - field.field.node.lenslet.field_artwork_location
     - field.field.node.lenslet.field_badges
     - field.field.node.lenslet.field_collection
     - field.field.node.lenslet.field_country
@@ -24,6 +25,7 @@ dependencies:
   module:
     - amp
     - field_group
+    - taxonomy
     - user
 third_party_settings:
   field_group:
@@ -128,6 +130,13 @@ content:
     settings:
       view_mode: amp
       link: false
+    third_party_settings: {  }
+  field_artwork_location:
+    type: entity_reference_rss_category
+    weight: 12
+    region: content
+    label: above
+    settings: {  }
     third_party_settings: {  }
   field_badges:
     type: entity_reference_entity_view

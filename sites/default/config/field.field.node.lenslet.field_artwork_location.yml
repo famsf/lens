@@ -1,0 +1,21 @@
+uuid: 84e2eac5-8b4b-4ace-b9d6-694c5439bc23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_artwork_location
+    - node.type.lenslet
+id: node.lenslet.field_artwork_location
+field_name: field_artwork_location
+entity_type: node
+bundle: lenslet
+label: 'Artwork location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference
