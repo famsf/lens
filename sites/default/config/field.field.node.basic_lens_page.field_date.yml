@@ -1,0 +1,19 @@
+uuid: 5a86bac9-08e3-4de7-9da6-2d907983cabc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.basic_lens_page
+id: node.basic_lens_page.field_date
+field_name: field_date
+entity_type: node
+bundle: basic_lens_page
+label: Date
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
