@@ -36,13 +36,18 @@
         "@type": "ARArtifact",
         "anchor": {
           "@type": "VisualArtwork",
-          "name": "{{ node_title }}",
+          "name": "{{ field_question }}",
           "creator": [
           {
             "@type": "Person",
             "name": "{{ field_artist_name }}"
           }],
-          "dateCreated": "{{ field_date }}"
+          "dateCreated": "{{ field_date }}",
+          "image": [
+          {
+            "@type": "ImageObject",
+            "url": "{{ artwork_thumbnail }}"
+          }],
         },
   
         "asset": {
