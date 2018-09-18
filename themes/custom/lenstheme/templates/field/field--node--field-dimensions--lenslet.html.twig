@@ -26,7 +26,8 @@
     <amp-img src="/themes/custom/lenstheme/images/ic_dimensions.png" width="24" height="24" alt="dimensions icon"></amp-img>
     <div class="art-detail-item-inner">
       <div class="artist-label">{{ label }}</div>
-      {{ item.content }}
+      <span class="dimensions">{{ item.content }}</span>
+      <span class="secondary-dimensions">{{ element['#object'].field_dimensions_secondary_.value }}</span>
     </div>
   </div>
 {% endfor %}
