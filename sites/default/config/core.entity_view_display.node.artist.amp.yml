@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.amp
     - field.field.node.artist.body
+    - field.field.node.artist.feeds_item
     - field.field.node.artist.field_born
     - field.field.node.artist.field_det
     - field.field.node.artist.field_died
@@ -25,32 +26,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_born:
-    weight: 2
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_det:
-    weight: 4
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_died:
-    weight: 3
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
   field_nationality:
     weight: 0
     label: hidden
@@ -60,4 +35,8 @@ content:
     type: string
     region: content
 hidden:
+  feeds_item: true
+  field_born: true
+  field_det: true
+  field_died: true
   links: true

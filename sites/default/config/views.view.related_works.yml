@@ -33,13 +33,13 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -59,14 +59,11 @@ display:
           items_per_page: 6
           offset: 0
       style:
-        type: html_list
+        type: default
         options:
           grouping: {  }
           row_class: ''
-          default_row_class: true
-          type: ul
-          wrapper_class: item-list
-          class: ''
+          default_row_class: false
       row:
         type: fields
         options:
@@ -75,59 +72,6 @@ display:
           separator: ''
           hide_empty: true
       fields:
-        view_node:
-          id: view_node
-          table: node
-          field: view_node
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: view
-          output_url_as_text: true
-          absolute: false
-          entity_type: node
-          plugin_id: entity_link
         field_image:
           id: field_image
           table: node__field_image
@@ -140,7 +84,7 @@ display:
           alter:
             alter_text: false
             text: '<a href="{{ view_node }}?amp">{{ field_image }}</a>'
-            make_link: true
+            make_link: false
             path: '{{ view_node }}?amp'
             absolute: false
             external: false
@@ -171,7 +115,7 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -181,7 +125,7 @@ display:
           settings:
             image_style: related_works_250
             image_link: ''
-            amp_layout: responsive
+            amp_layout: ''
             amp_fixed_height: '300'
           group_column: ''
           group_columns: {  }
@@ -206,7 +150,7 @@ display:
           alter:
             alter_text: false
             text: ''
-            make_link: true
+            make_link: false
             path: '{{ view_node }}?amp'
             absolute: false
             external: false
@@ -220,7 +164,7 @@ display:
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 40
+            max_length: 30
             word_boundary: false
             ellipsis: true
             more_link: false
@@ -285,14 +229,14 @@ display:
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 0
-            word_boundary: true
+            max_length: 30
+            word_boundary: false
             ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
             strip_tags: false
-            trim: false
+            trim: true
             preserve_tags: ''
             html: false
           element_type: ''

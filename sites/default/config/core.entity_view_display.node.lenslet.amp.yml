@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.lenslet.field_country
     - field.field.node.lenslet.field_date
     - field.field.node.lenslet.field_dimensions
+    - field.field.node.lenslet.field_dimensions_secondary_
     - field.field.node.lenslet.field_image
     - field.field.node.lenslet.field_item_id
     - field.field.node.lenslet.field_medium
@@ -40,23 +41,23 @@ third_party_settings:
       weight: 4
       format_type: html_element
       format_settings:
-        label: 'Artwork information'
+        label: About
         element: div
-        show_label: false
-        label_element: h3
+        show_label: true
+        label_element: h4
         attributes: ''
         effect: none
         speed: fast
         id: ''
         classes: art-details
-      label: 'Artwork information'
+      label: About
       region: content
     group_artist_and_date:
       children:
         - field_date
         - field_artist_name
       parent_name: ''
-      weight: 11
+      weight: 13
       format_type: html_element
       format_settings:
         id: ''
@@ -133,7 +134,7 @@ content:
     third_party_settings: {  }
   field_artwork_location:
     type: entity_reference_rss_category
-    weight: 12
+    weight: 7
     region: content
     label: above
     settings: {  }
@@ -165,7 +166,7 @@ content:
     third_party_settings: {  }
   field_dimensions:
     type: amp_text
-    weight: 13
+    weight: 12
     region: content
     label: above
     settings: {  }
@@ -197,7 +198,7 @@ content:
     third_party_settings: {  }
   field_rights:
     type: amp_text
-    weight: 12
+    weight: 11
     region: content
     label: above
     settings: {  }
@@ -211,6 +212,7 @@ hidden:
   feeds_item: true
   field_artist_name: true
   field_date: true
+  field_dimensions_secondary_: true
   field_item_id: true
   field_region: true
   links: true

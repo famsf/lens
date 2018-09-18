@@ -34,14 +34,6 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: content
-  field_det:
-    weight: 4
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_died:
     weight: 3
     label: above
@@ -61,4 +53,5 @@ content:
     region: content
 hidden:
   feeds_item: true
+  field_det: true
   links: true

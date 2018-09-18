@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.lenslet.field_country
     - field.field.node.lenslet.field_date
     - field.field.node.lenslet.field_dimensions
+    - field.field.node.lenslet.field_dimensions_secondary_
     - field.field.node.lenslet.field_image
     - field.field.node.lenslet.field_item_id
     - field.field.node.lenslet.field_medium
@@ -109,6 +110,14 @@ content:
     region: content
   field_dimensions:
     weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_dimensions_secondary_:
+    weight: 19
     label: above
     settings:
       link_to_entity: false

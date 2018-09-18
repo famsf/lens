@@ -5,13 +5,13 @@ dependencies:
   module:
     - focal_point
 name: related_works_250
-label: 'Related works 250'
+label: 'Related works 220'
 effects:
   b7a36a2b-019a-4efa-a8de-a5d076b7458f:
     uuid: b7a36a2b-019a-4efa-a8de-a5d076b7458f
     id: focal_point_scale_and_crop
     weight: 1
     data:
-      width: 250
-      height: 141
+      width: 220
+      height: 140
       crop_type: focal_point

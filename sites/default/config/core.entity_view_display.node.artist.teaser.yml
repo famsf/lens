@@ -5,6 +5,11 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.artist.body
+    - field.field.node.artist.feeds_item
+    - field.field.node.artist.field_born
+    - field.field.node.artist.field_det
+    - field.field.node.artist.field_died
+    - field.field.node.artist.field_nationality
     - node.type.artist
   module:
     - text
@@ -25,4 +30,9 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  feeds_item: true
+  field_born: true
+  field_det: true
+  field_died: true
+  field_nationality: true
