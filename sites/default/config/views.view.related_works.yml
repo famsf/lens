@@ -8,10 +8,12 @@ dependencies:
     - field.storage.node.field_image
     - image.style.related_works_250
     - node.type.lenslet
+    - taxonomy.vocabulary.location
   module:
     - amp
     - eva
     - node
+    - taxonomy
     - user
 id: related_works
 label: 'Related works'
@@ -330,6 +332,16 @@ display:
           field_api_classes: false
           plugin_id: field
       filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            lenslet: lenslet
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          group: 1
         status:
           value: '1'
           table: node_field_data
@@ -341,15 +353,6 @@ display:
           expose:
             operator: ''
           group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            lenslet: lenslet
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
       sorts:
         random:
           id: random
@@ -366,13 +369,35 @@ display:
       header: {  }
       footer: {  }
       empty: {  }
-      relationships: {  }
+      relationships:
+        term_node_tid:
+          id: term_node_tid
+          table: node_field_data
+          field: term_node_tid
+          relationship: none
+          group_type: group
+          admin_label: a
+          required: true
+          vids:
+            - location
+          entity_type: node
+          plugin_id: node_term_data
+        reverse__node__field_artwork_location:
+          id: reverse__node__field_artwork_location
+          table: taxonomy_term_field_data
+          field: reverse__node__field_artwork_location
+          relationship: term_node_tid
+          group_type: group
+          admin_label: b
+          required: true
+          entity_type: taxonomy_term
+          plugin_id: entity_reverse
       arguments:
         nid:
           id: nid
-          table: node_field_revision
+          table: node_field_data
           field: nid
-          relationship: none
+          relationship: reverse__node__field_artwork_location
           group_type: group
           admin_label: ''
           default_action: ignore
@@ -401,12 +426,53 @@ display:
             fail: 'not found'
           validate_options: {  }
           break_phrase: false
+          not: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: node_nid
+        nid_1:
+          id: nid_1
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          default_action: ignore
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
           not: true
           entity_type: node
           entity_field: nid
           plugin_id: node_nid
       display_extenders: {  }
       title: 'Related works'
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: 0
       contexts:
