@@ -1,0 +1,15 @@
+uuid: 3a01e80a-f7de-4988-8e34-bc3673efdb34
+langcode: en
+status: true
+dependencies: {  }
+name: lens_main
+label: Lens
+effects:
+  c2f6a9dd-dfcc-4d10-a243-8691dc647f2e:
+    uuid: c2f6a9dd-dfcc-4d10-a243-8691dc647f2e
+    id: image_scale
+    weight: 1
+    data:
+      width: 1200
+      height: null
+      upscale: false

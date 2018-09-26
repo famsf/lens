@@ -1,0 +1,23 @@
+uuid: 0ed0f976-e691-4285-8c9e-be7d7a5401cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mets
+    - node.type.lenslet
+  module:
+    - metatag
+id: node.lenslet.field_mets
+field_name: field_mets
+entity_type: node
+bundle: lenslet
+label: 'Meta tags'
+description: 'These should be handled automatically, but can be overridden.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag
