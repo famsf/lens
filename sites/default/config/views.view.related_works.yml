@@ -508,7 +508,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: '<h3>Related Works</h3>'
+            value: '<h3>Also in this gallery</h3>'
             format: full_html
           plugin_id: text
       defaults:
