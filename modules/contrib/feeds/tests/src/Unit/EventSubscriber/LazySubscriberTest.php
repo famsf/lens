@@ -97,6 +97,9 @@ class LazySubscriberTest extends FeedsUnitTestCase {
       ->method('getState')
       ->will($this->returnValue($this->state));
     $this->feedType = $this->getMock('Drupal\feeds\FeedTypeInterface');
+    $this->feedType->expects($this->any())
+      ->method('getMappedSources')
+      ->will($this->returnValue([]));
 
     $this->fetcher = $this->getMock('Drupal\feeds\Plugin\Type\Fetcher\FetcherInterface');
     $this->parser = $this->getMock('Drupal\feeds\Plugin\Type\Parser\ParserInterface');

@@ -91,6 +91,41 @@ class FeedTypeTest extends FeedsUnitTestCase {
   }
 
   /**
+   * @covers ::getMappedSources
+   */
+  public function testGetMappedSources() {
+    $feed_type = $this->getFeedTypeMock($this->randomMachineName(), ['getMappings']);
+
+    $feed_type->expects($this->once())
+      ->method('getMappings')
+      ->will($this->returnValue([
+        [
+          'target' => 'feeds_item',
+          'map' => ['guid' => 'guid'],
+          'unique' => ['guid' => TRUE],
+        ],
+        [
+          'target' => 'title',
+          'map' => ['value' => 'title'],
+        ],
+        [
+          'target' => 'body',
+          'map' => ['value' => 'description'],
+          'settings' => [
+            ['format' => 'plain_text'],
+          ],
+        ],
+      ]));
+
+    $expected = [
+      'guid' => 'guid',
+      'title' => 'title',
+      'description' => 'description',
+    ];
+    $this->assertSame($expected, $feed_type->getMappedSources());
+  }
+
+  /**
    * @covers ::addCustomSource
    */
   public function testAddCustomSource() {

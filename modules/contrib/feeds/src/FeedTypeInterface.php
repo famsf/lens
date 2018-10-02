@@ -161,6 +161,14 @@ interface FeedTypeInterface extends ConfigEntityInterface {
   public function removeMappings();
 
   /**
+   * Returns a list of mapped sources.
+   *
+   * @return string[]
+   *   A list of mapped source names.
+   */
+  public function getMappedSources();
+
+  /**
    * Adds a custom source that can be used in mapping.
    *
    * @param string $name

@@ -194,7 +194,11 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
     }
 
     // Set list of entities to clean.
-    $state->setList($this->getImportedItemIds($feed));
+    $ids = $this->queryFactory->get($this->entityType())
+      ->condition('feeds_item.target_id', $feed->id())
+      ->condition('feeds_item.hash', $this->getConfiguration('update_non_existent'), '<>')
+      ->execute();
+    $state->setList($ids);
 
     // And set progress.
     $state->total = $state->count();
@@ -450,7 +454,7 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
       '@entity' => Unicode::strtolower($this->entityTypeLabel()),
       '%label' => $label,
       '%guid' => $guid,
-      '@errors' => \Drupal::service('renderer')->render($element),
+      '@errors' => \Drupal::service('renderer')->renderRoot($element),
       ':url' => $this->url('entity.feeds_feed_type.mapping', ['feeds_feed_type' => $this->feedType->id()]),
     ];
     if ($label || $label === '0' || $label === 0) {
@@ -468,7 +472,7 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
     $message_element = [
       '#markup' => implode("\n", $messages),
     ];
-    $message = \Drupal::service('renderer')->render($message_element);
+    $message = \Drupal::service('renderer')->renderRoot($message_element);
 
     throw new ValidationException($message);
   }
@@ -753,7 +757,9 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
    *   An MD5 hash.
    */
   protected function hash(ItemInterface $item) {
-    return hash('md5', serialize($item) . serialize($this->feedType->getMappings()));
+    $sources = $this->feedType->getMappedSources();
+    $mapped_item = array_intersect_key($item->toArray(), $sources);
+    return hash('md5', serialize($mapped_item) . serialize($this->feedType->getMappings()));
   }
 
   /**
@@ -794,12 +800,7 @@ abstract class EntityProcessorBase extends ProcessorBase implements EntityProces
           $source_values[$target][$column] = [];
         }
 
-        if ($plugin = $feed->getType()->getSourcePlugin($source)) {
-          $value = $plugin->getSourceElement($feed, $item);
-        }
-        else {
-          $value = $item->get($source);
-        }
+        $value = $item->get($source);
         if (!is_array($value)) {
           $source_values[$target][$column][] = $value;
         }

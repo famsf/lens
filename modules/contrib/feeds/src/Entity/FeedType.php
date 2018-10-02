@@ -325,6 +325,25 @@ class FeedType extends ConfigEntityBundleBase implements FeedTypeInterface, Enti
   /**
    * {@inheritdoc}
    */
+  public function getMappedSources() {
+    $sources = [];
+
+    foreach ($this->getMappings() as $mapping) {
+      foreach ($mapping['map'] as $column => $source) {
+        if ($source === '') {
+          // Skip empty sources.
+          continue;
+        }
+        $sources[$source] = $source;
+      }
+    }
+
+    return $sources;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function addCustomSource($name, array $source) {
     $this->custom_sources[$name] = $source;
     return $this;

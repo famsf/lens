@@ -114,6 +114,14 @@ class EntityProcessorBaseTest extends FeedsKernelTestBase {
    */
   public function testProcess() {
     $item = $this->getMock(ItemInterface::class);
+    $item->expects($this->any())
+      ->method('toArray')
+      ->will($this->returnValue([]));
+
+    $this->feedType->expects($this->any())
+      ->method('getMappedSources')
+      ->will($this->returnValue([]));
+
     $this->processor->process($this->feed, $item, $this->state);
 
     // @todo This method should be tested with multiple times with different

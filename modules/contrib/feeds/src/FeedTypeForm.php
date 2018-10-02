@@ -222,6 +222,23 @@ class FeedTypeForm extends EntityForm {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  protected function actions(array $form, FormStateInterface $form_state) {
+    $actions = parent::actions($form, $form_state);
+
+    if ($this->entity->isNew()) {
+      $actions['submit']['#value'] = $this->t('Save and add mappings');
+      $actions['submit']['#submit'][] = '::toMapping';
+    }
+    else {
+      $actions['submit']['#value'] = $this->t('Save feed type');
+    }
+
+    return $actions;
+  }
+
+  /**
    * Returns the plugin forms for this feed type.
    *
    * @return \Drupal\feeds\Plugin\Type\ExternalPluginFormInterface[]
@@ -297,6 +314,13 @@ class FeedTypeForm extends EntityForm {
     $this->entity->save();
     $form_state->setRedirect('entity.feeds_feed_type.edit_form', ['feeds_feed_type' => $this->entity->id()]);
     drupal_set_message($this->t('Your changes have been saved.'));
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function toMapping(array &$form, FormStateInterface $form_state) {
+    $form_state->setRedirectUrl($this->entity->toUrl('mapping'));
   }
 
   /**

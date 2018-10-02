@@ -117,4 +117,14 @@ interface StateInterface {
    */
   public function displayMessages();
 
+  /**
+   * Logs all messages.
+   *
+   * @param \Drupal\feeds\FeedInterface $feed
+   *   The feed to log messages for.
+   *
+   * @see \Drupal\feeds\StateInterface::setMessage()
+   */
+  public function logMessages(FeedInterface $feed);
+
 }

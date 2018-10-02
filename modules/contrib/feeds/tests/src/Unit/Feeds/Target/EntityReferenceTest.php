@@ -9,6 +9,8 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Entity\Query\QueryInterface;
+use Drupal\feeds\Exception\EmptyFeedException;
+use Drupal\feeds\Exception\ReferenceNotFoundException;
 use Drupal\feeds\Feeds\Target\EntityReference;
 use Drupal\feeds\FieldTargetDefinition;
 
@@ -132,11 +134,21 @@ class EntityReferenceTest extends FieldTargetTestBase {
   /**
    * @covers ::prepareValue
    *
-   * Tests prepareValue() method without match.
-   *
-   * @expectedException \Drupal\feeds\Exception\EmptyFeedException
+   * Tests prepareValue() without passing values.
    */
   public function testPrepareValueEmptyFeed() {
+    $method = $this->getProtectedClosure($this->targetPlugin, 'prepareValue');
+    $values = ['target_id' => ''];
+    $this->setExpectedException(EmptyFeedException::class);
+    $method(0, $values);
+  }
+
+  /**
+   * @covers ::prepareValue
+   *
+   * Tests prepareValue() method without match.
+   */
+  public function testPrepareValueReferenceNotFound() {
     // Entity query.
     $entity_query = $this->prophesize(QueryInterface::class);
     $entity_query->range(0, 1)->willReturn($entity_query);
@@ -146,6 +158,7 @@ class EntityReferenceTest extends FieldTargetTestBase {
 
     $method = $this->getProtectedClosure($this->targetPlugin, 'prepareValue');
     $values = ['target_id' => 1];
+    $this->setExpectedException(ReferenceNotFoundException::class);
     $method(0, $values);
   }
 

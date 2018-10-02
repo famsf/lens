@@ -282,7 +282,10 @@ class Feed extends ContentEntityBase implements FeedInterface {
       ->postProcess($this, $this->getState(StateInterface::PROCESS));
 
     foreach ($this->states as $state) {
-      is_object($state) ? $state->displayMessages() : NULL;
+      if (is_object($state)) {
+        $state->displayMessages();
+        $state->logMessages($this);
+      }
     }
 
     $this->clearStates();

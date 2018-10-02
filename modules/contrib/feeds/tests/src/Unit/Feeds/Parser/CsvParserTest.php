@@ -5,6 +5,7 @@ namespace Drupal\Tests\feeds\Unit\Feeds\Parser;
 use Drupal\feeds\Feeds\Parser\CsvParser;
 use Drupal\feeds\Result\FetcherResult;
 use Drupal\feeds\State;
+use Drupal\feeds\StateInterface;
 use Drupal\Tests\feeds\Unit\FeedsUnitTestCase;
 
 /**
@@ -73,7 +74,7 @@ class CsvParserTest extends FeedsUnitTestCase {
       ->with($this->parser)
       ->will($this->returnValue($this->parser->defaultFeedConfiguration()));
 
-    $file = dirname(dirname(dirname(dirname(__DIR__)))) . '/resources/csv/example.csv';
+    $file = $this->resourcesPath() . '/csv/example.csv';
     $fetcher_result = new FetcherResult($file);
 
     $result = $this->parser->parse($this->feed, $fetcher_result, $this->state);
@@ -98,6 +99,34 @@ class CsvParserTest extends FeedsUnitTestCase {
     touch('vfs://feeds/empty_file');
     $result = new FetcherResult('vfs://feeds/empty_file');
     $this->parser->parse($this->feed, $result, $this->state);
+  }
+
+  /**
+   * Tests parsing a file with a few extra blank lines.
+   */
+  public function testFeedWithExtraBlankLines() {
+    // Set an high line limit.
+    $configuration = ['feed_type' => $this->feedType, 'line_limit' => 100];
+    $this->parser = new CsvParser($configuration, 'csv', []);
+    $this->parser->setStringTranslation($this->getStringTranslationStub());
+
+    $this->feed->expects($this->any())
+      ->method('getConfigurationFor')
+      ->with($this->parser)
+      ->will($this->returnValue($this->parser->defaultFeedConfiguration()));
+
+    $file = $this->resourcesPath() . '/csv/with-empty-lines.csv';
+    $fetcher_result = new FetcherResult($file);
+
+    $result = $this->parser->parse($this->feed, $fetcher_result, $this->state);
+    $this->assertCount(9, $result);
+
+    // Parse again.
+    $result = $this->parser->parse($this->feed, $fetcher_result, $this->state);
+    $this->assertCount(0, $result);
+
+    // Assert that parsing has finished.
+    $this->assertEquals(StateInterface::BATCH_COMPLETE, $this->state->progress);
   }
 
   /**

@@ -6,8 +6,6 @@ use Drupal\feeds\Component\CsvParser as CsvFileParser;
 use Drupal\feeds\Exception\EmptyFeedException;
 use Drupal\feeds\FeedInterface;
 use Drupal\feeds\Feeds\Item\DynamicItem;
-use Drupal\feeds\Plugin\Type\Parser\ParserInterface;
-use Drupal\feeds\Plugin\Type\PluginBase;
 use Drupal\feeds\Result\FetcherResultInterface;
 use Drupal\feeds\Result\ParserResult;
 use Drupal\feeds\StateInterface;
@@ -25,7 +23,7 @@ use Drupal\feeds\StateInterface;
  *   },
  * )
  */
-class CsvParser extends PluginBase implements ParserInterface {
+class CsvParser extends ParserBase {
 
   /**
    * {@inheritdoc}
@@ -77,6 +75,12 @@ class CsvParser extends PluginBase implements ParserInterface {
     $state->pointer = $parser->lastLinePos();
     $state->progress($state->total, $state->pointer);
 
+    // Set progress to complete if no more results are parsed. Can happen with
+    // empty lines in CSV.
+    if (!$result->count()) {
+      $state->setCompleted();
+    }
+
     return $result;
   }
 
@@ -85,6 +89,13 @@ class CsvParser extends PluginBase implements ParserInterface {
    */
   public function getMappingSources() {
     return [];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function configSourceLabel() {
+    return $this->t('CSV source');
   }
 
   /**

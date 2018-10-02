@@ -127,4 +127,20 @@ class State implements StateInterface {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function logMessages(FeedInterface $feed) {
+    foreach ($this->messages as $message) {
+      switch ($message['type']) {
+        case 'status':
+          $message['type'] = 'info';
+          break;
+      }
+      \Drupal::logger('feeds')->log($message['type'], $message['message'], [
+        'feed' => $feed,
+      ]);
+    }
+  }
+
 }

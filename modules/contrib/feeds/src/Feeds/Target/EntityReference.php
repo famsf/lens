@@ -3,6 +3,7 @@
 namespace Drupal\feeds\Feeds\Target;
 
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityRepositoryInterface;
@@ -12,6 +13,9 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\TypedData\DataDefinitionInterface;
 use Drupal\feeds\Exception\EmptyFeedException;
+use Drupal\feeds\Exception\ReferenceNotFoundException;
+use Drupal\feeds\Exception\TargetValidationException;
+use Drupal\feeds\FeedInterface;
 use Drupal\feeds\FieldTargetDefinition;
 use Drupal\feeds\Plugin\Type\Target\ConfigurableTargetInterface;
 use Drupal\feeds\Plugin\Type\Target\FieldTargetBase;
@@ -99,6 +103,44 @@ class EntityReference extends FieldTargetBase implements ConfigurableTargetInter
 
     return FieldTargetDefinition::createFromFieldDefinition($field_definition)
       ->addProperty('target_id');
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setTarget(FeedInterface $feed, EntityInterface $entity, $field_name, array $raw_values) {
+    $values = [];
+    foreach ($raw_values as $delta => $columns) {
+      try {
+        $this->prepareValue($delta, $columns);
+        $values[] = $columns;
+      }
+      catch (ReferenceNotFoundException $e) {
+        // The referenced entity is not found. We need to enforce Feeds to try
+        // to import the same item again on the next import.
+        // Feeds stores a hash of every imported item in order to make the
+        // import process more efficient by ignoring items it has already seen.
+        // In this case we need to destroy the hash in order to be able to
+        // import the reference on a next import.
+        $entity->get('feeds_item')->hash = NULL;
+      }
+      catch (EmptyFeedException $e) {
+        // Nothing wrong here.
+      }
+      catch (TargetValidationException $e) {
+        // Validation failed.
+        $this->addMessage($e->getFormattedMessage(), 'error');
+      }
+    }
+
+    if (!empty($values)) {
+      $item_list = $entity->get($field_name);
+
+      // Append these values to the existing values.
+      $values = array_merge($item_list->getValue(), $values);
+
+      $item_list->setValue($values);
+    }
   }
 
   /**
@@ -200,11 +242,20 @@ class EntityReference extends FieldTargetBase implements ConfigurableTargetInter
    * {@inheritdoc}
    */
   protected function prepareValue($delta, array &$values) {
+    // Check if there is a value for target ID.
+    if (!isset($values['target_id']) || strlen(trim($values['target_id'])) === 0) {
+      // No value.
+      throw new EmptyFeedException();
+    }
+
     if ($this->configuration['reference_by'] == 'feeds_item') {
       switch ($this->configuration['feeds_item']) {
         case 'guid':
-          $values = ['target_id' => $this->findEntityByGuid($this->getEntityType(), $values['target_id'])];
-          return;
+          if ($target_id = $this->findEntityByGuid($this->getEntityType(), $values['target_id'])) {
+            $values['target_id'] = $target_id;
+            return;
+          }
+          break;
       }
     }
     else {
@@ -214,7 +265,7 @@ class EntityReference extends FieldTargetBase implements ConfigurableTargetInter
       }
     }
 
-    throw new EmptyFeedException();
+    throw new ReferenceNotFoundException();
   }
 
   /**

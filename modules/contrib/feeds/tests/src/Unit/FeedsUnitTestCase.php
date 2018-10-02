@@ -27,6 +27,26 @@ namespace Drupal\Tests\feeds\Unit {
     }
 
     /**
+     * Returns the absolute directory path of the Feeds module.
+     *
+     * @return string
+     *   The absolute path to the Feeds module.
+     */
+    protected function absolutePath() {
+      return dirname(dirname(dirname(__DIR__)));
+    }
+
+    /**
+     * Returns the absolute directory path of the resources folder.
+     *
+     * @return string
+     *   The absolute path to the resources folder.
+     */
+    protected function resourcesPath() {
+      return $this->absolutePath() . '/tests/resources';
+    }
+
+    /**
      * Returns a mock stream wrapper manager.
      *
      * @return \Drupal\Core\StreamWrapper\StreamWrapperManager

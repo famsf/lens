@@ -47,8 +47,11 @@ class MappingForm extends FormBase {
     foreach ($feed_type->getMappingSources() as $key => $info) {
       $this->sourceOptions[$key] = $info['label'];
     }
-    $this->sourceOptions['__new'] = $this->t('New source...');
     $this->sourceOptions = $this->sortOptions($this->sourceOptions);
+    $this->sourceOptions = [
+      '__new' => $this->t('New source...'),
+      '----' => '----',
+    ] + $this->sourceOptions;
 
     $target_options = [];
     foreach ($targets as $key => $target) {

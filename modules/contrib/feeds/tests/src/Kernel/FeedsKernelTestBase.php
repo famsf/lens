@@ -39,6 +39,28 @@ abstract class FeedsKernelTestBase extends EntityKernelTestBase {
   }
 
   /**
+   * Installs the taxonomy module and adds a vocabulary.
+   *
+   * @return \Drupal\taxonomy\VocabularyInterface
+   *   The created vocabulary.
+   */
+  protected function installTaxonomyModuleWithVocabulary() {
+    // Install taxonomy module and schema.
+    $this->installModule('taxonomy');
+    $this->installConfig(['filter', 'taxonomy']);
+    $this->installEntitySchema('taxonomy_term');
+
+    // Create tags vocabulary.
+    $vocabulary = $this->entityManager->getStorage('taxonomy_vocabulary')->create([
+      'vid' => 'tags',
+      'name' => 'Tags',
+    ]);
+    $vocabulary->save();
+
+    return $vocabulary;
+  }
+
+  /**
    * Installs body field (not needed for every kernel test).
    */
   protected function setUpBodyField() {
@@ -53,17 +75,7 @@ abstract class FeedsKernelTestBase extends EntityKernelTestBase {
    *   The created vocabulary.
    */
   protected function setUpTermReferenceField() {
-    // Install taxonomy module and schema.
-    $this->installModule('taxonomy');
-    $this->installConfig(['filter', 'taxonomy']);
-    $this->installEntitySchema('taxonomy_term');
-
-    // Create tags vocabulary.
-    $vocabulary = $this->entityManager->getStorage('taxonomy_vocabulary')->create([
-      'vid' => 'tags',
-      'name' => 'Tags',
-    ]);
-    $vocabulary->save();
+    $vocabulary = $this->installTaxonomyModuleWithVocabulary();
 
     // Create field for article content type.
     $this->createFieldWithStorage('field_tags', [
