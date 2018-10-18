@@ -128,7 +128,7 @@ display:
             image_style: related_works_250
             image_link: ''
             amp_layout: ''
-            amp_fixed_height: '300'
+            amp_fixed_height: 300
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -508,7 +508,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: '<h3>Also in this gallery</h3>'
+            value: '<h3>\ Also in this gallery</h3>'
             format: full_html
           plugin_id: text
       defaults:
