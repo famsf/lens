@@ -43,7 +43,7 @@ third_party_settings:
         label: '\ About'
         element: div
         show_label: true
-        label_element: h4
+        label_element: h3
         attributes: ''
         effect: none
         speed: fast
