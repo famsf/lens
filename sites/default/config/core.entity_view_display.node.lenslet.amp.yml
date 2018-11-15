@@ -159,7 +159,7 @@ content:
     type: amp_image
     weight: 0
     region: content
-    label: hidden
+    label: above
     settings:
       image_style: lenslet_header
       image_link: ''
