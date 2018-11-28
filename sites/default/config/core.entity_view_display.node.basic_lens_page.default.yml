@@ -6,8 +6,11 @@ dependencies:
     - field.field.node.basic_lens_page.body
     - field.field.node.basic_lens_page.field_artist_name
     - field.field.node.basic_lens_page.field_date
+    - field.field.node.basic_lens_page.field_image
+    - field.field.node.basic_lens_page.field_question
     - node.type.basic_lens_page
   module:
+    - image
     - text
     - user
 id: node.basic_lens_page.default
@@ -21,6 +24,22 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 3
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_question:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   links:
     weight: 0

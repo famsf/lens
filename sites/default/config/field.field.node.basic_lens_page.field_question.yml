@@ -1,0 +1,21 @@
+uuid: 14179068-25a8-4096-aa17-caefd43ff64f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_question
+    - node.type.basic_lens_page
+  module:
+    - text
+id: node.basic_lens_page.field_question
+field_name: field_question
+entity_type: node
+bundle: basic_lens_page
+label: Question
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

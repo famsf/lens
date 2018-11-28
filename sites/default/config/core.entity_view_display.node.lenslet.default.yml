@@ -21,18 +21,20 @@ dependencies:
     - field.field.node.lenslet.field_question
     - field.field.node.lenslet.field_region
     - field.field.node.lenslet.field_rights
+    - field.field.node.lenslet.field_video
     - node.type.lenslet
   module:
     - field_group
     - image
     - text
     - user
+    - video_embed_field
 third_party_settings:
   field_group:
     group_artist_and_date:
       children: {  }
       parent_name: ''
-      weight: 20
+      weight: 21
       format_type: html_element
       format_settings:
         id: ''
@@ -70,7 +72,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_artist_name:
-    weight: 12
+    weight: 13
     label: above
     settings:
       link_to_entity: false
@@ -78,7 +80,7 @@ content:
     type: string
     region: content
   field_artwork_location:
-    weight: 14
+    weight: 15
     label: above
     settings:
       link: true
@@ -86,14 +88,6 @@ content:
     type: entity_reference_label
     region: content
   field_collection:
-    weight: 9
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_country:
     weight: 10
     label: above
     settings:
@@ -101,8 +95,16 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_country:
+    weight: 11
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_date:
-    weight: 8
+    weight: 9
     label: above
     settings:
       link_to_entity: false
@@ -110,7 +112,7 @@ content:
     type: string
     region: content
   field_dimensions:
-    weight: 7
+    weight: 8
     label: above
     settings:
       link_to_entity: false
@@ -118,7 +120,7 @@ content:
     type: string
     region: content
   field_dimensions_secondary_:
-    weight: 15
+    weight: 16
     label: above
     settings:
       link_to_entity: false
@@ -135,7 +137,7 @@ content:
     type: image
     region: content
   field_item_id:
-    weight: 6
+    weight: 7
     label: above
     settings:
       link_to_entity: false
@@ -143,7 +145,7 @@ content:
     type: string
     region: content
   field_medium:
-    weight: 4
+    weight: 5
     label: above
     settings:
       link_to_entity: false
@@ -158,7 +160,7 @@ content:
     type: text_default
     region: content
   field_region:
-    weight: 13
+    weight: 14
     label: above
     settings:
       link_to_entity: false
@@ -166,14 +168,25 @@ content:
     type: string
     region: content
   field_rights:
-    weight: 5
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
+  field_video:
+    weight: 4
+    label: above
+    settings:
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: true
+    third_party_settings: {  }
+    type: video_embed_field_video
+    region: content
   related_works_entity_view_1:
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }

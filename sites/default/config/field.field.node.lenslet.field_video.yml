@@ -1,0 +1,25 @@
+uuid: 82336a55-627e-4731-a4f9-66f0cebe0f85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video
+    - node.type.lenslet
+  module:
+    - video_embed_field
+id: node.lenslet.field_video
+field_name: field_video
+entity_type: node
+bundle: lenslet
+label: Video
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    youtube: youtube
+    vimeo: '0'
+    youtube_playlist: '0'
+field_type: video_embed_field

@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.lenslet.field_question
     - field.field.node.lenslet.field_region
     - field.field.node.lenslet.field_rights
+    - field.field.node.lenslet.field_video
     - image.style.lenslet_header
     - node.type.lenslet
   module:
@@ -29,6 +30,7 @@ dependencies:
     - field_group
     - taxonomy
     - user
+    - video_embed_field
 third_party_settings:
   field_group:
     group_artwork_information:
@@ -74,6 +76,7 @@ third_party_settings:
       children:
         - field_question
         - body
+        - field_video
       parent_name: ''
       weight: 1
       format_type: html_element
@@ -186,6 +189,17 @@ content:
     region: content
     label: above
     settings: {  }
+    third_party_settings: {  }
+  field_video:
+    type: video_embed_field_video
+    weight: 12
+    region: content
+    label: hidden
+    settings:
+      autoplay: true
+      responsive: true
+      width: 854
+      height: 480
     third_party_settings: {  }
   related_works_entity_view_1:
     weight: 6
