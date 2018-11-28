@@ -23,3 +23,9 @@ function lenstheme_preprocess_html(&$variables) {
   $variables['base_url'] = $GLOBALS['base_url'];
   $variables['artwork_thumbnail'] = file_create_url($node->get('field_image')->entity->getFileUri());
 };
+
+function lenstheme_preprocess_video_embed_iframe__youtube(&$variables) {
+  // Change the $variables array for all YouTube videos.
+  $variables['query']['modestbranding'] = '1';
+  $variables['query']['rel'] = '0';
+};
