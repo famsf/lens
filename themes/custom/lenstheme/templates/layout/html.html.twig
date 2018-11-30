@@ -33,30 +33,25 @@
     <meta name="application-name" content="de Young Museum" />
     <script type="application/ld+json">
       {
-        "@context": "http://schema.org",
+        "@context": "http://schema.googleapis.com",
         "@type": "ARArtifact",
-        "anchor": {
-          "@type": "VisualArtwork",
+        "arTarget": {
+          "@type": "ARImageTarget",
           "name": "{{ node_title }}",
-          "creator": [
-          {
-            "@type": "Person",
-            "name": "{{ field_artist_name }}"
-          }],
-          "dateCreated": "{{ field_date }}",
-          "image": [
-          {
-            "@type": "ImageObject",
-            "url": "{{ artwork_thumbnail }}"
-          }]
+          "image": "{{ artwork_thumbnail }}"
         },
   
-        "asset": {
+        "arContent": {
           "@type": "WebPage",
           "name": "de Young Museum: {{ node_title }}",
           "description": "{{ node_teaser|striptags|raw|length > 100 ? node_teaser|striptags|slice(0, 100) ~ '...' : node_teaser }}",
           "image": "{{ base_url  }}/themes/custom/lenstheme/images/dy-logo.png",
-          "url": "{{ url('<current>') }}?amp"
+          "url": "{{ url('<current>') }}?amp",
+          "publisher": {
+            "@type": "Organization",
+            "name": "de Young museum",
+            "logo": "{{ base_url  }}/themes/custom/lenstheme/images/dy-logo.png"
+          }
         }
       }
     </script>
