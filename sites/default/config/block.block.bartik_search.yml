@@ -1,6 +1,6 @@
 uuid: e5ce0271-ffab-41c0-9a89-613290314e52
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - search
