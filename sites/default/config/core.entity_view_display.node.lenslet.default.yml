@@ -176,7 +176,7 @@ content:
     region: content
   field_video:
     weight: 4
-    label: above
+    label: hidden
     settings:
       responsive: true
       width: 854

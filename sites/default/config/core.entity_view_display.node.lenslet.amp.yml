@@ -196,10 +196,10 @@ content:
     region: content
     label: hidden
     settings:
-      autoplay: true
       responsive: true
       width: 854
       height: 480
+      autoplay: false
     third_party_settings: {  }
   related_works_entity_view_1:
     weight: 6
