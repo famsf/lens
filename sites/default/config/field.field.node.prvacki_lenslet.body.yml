@@ -1,0 +1,22 @@
+uuid: 96b5e350-8fae-44d5-a67c-9d4366fba875
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.prvacki_lenslet
+  module:
+    - text
+id: node.prvacki_lenslet.body
+field_name: body
+entity_type: node
+bundle: prvacki_lenslet
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

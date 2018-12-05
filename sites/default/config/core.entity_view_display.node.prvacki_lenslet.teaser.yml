@@ -1,0 +1,30 @@
+uuid: 6e51240f-34bd-4b0d-890e-cce7d69f7aac
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.prvacki_lenslet.body
+    - node.type.prvacki_lenslet
+  module:
+    - text
+    - user
+id: node.prvacki_lenslet.teaser
+targetEntityType: node
+bundle: prvacki_lenslet
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

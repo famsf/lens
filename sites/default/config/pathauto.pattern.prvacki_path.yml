@@ -1,0 +1,22 @@
+uuid: 04e78c66-579d-477c-8a23-a57c3ebd19a4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: prvacki_path
+label: 'Prvacki path'
+type: 'canonical_entities:node'
+pattern: 'prvacki/[node:title]'
+selection_criteria:
+  948b2e06-8ca5-4806-8484-c58b923be7d0:
+    id: node_type
+    bundles:
+      prvacki_lenslet: prvacki_lenslet
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 948b2e06-8ca5-4806-8484-c58b923be7d0
+selection_logic: and
+weight: -5
+relationships: {  }

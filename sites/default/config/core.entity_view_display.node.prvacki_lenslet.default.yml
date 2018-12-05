@@ -1,0 +1,69 @@
+uuid: a9b00d39-3408-49bf-aede-c666ee3cfc28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.prvacki_lenslet.body
+    - field.field.node.prvacki_lenslet.field_image
+    - field.field.node.prvacki_lenslet.field_video
+    - node.type.prvacki_lenslet
+  module:
+    - field_group
+    - image
+    - text
+    - user
+    - video_embed_field
+third_party_settings:
+  field_group:
+    group_main_content:
+      children:
+        - field_video
+        - body
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: curator-notes
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Main content'
+      region: content
+id: node.prvacki_lenslet.default
+targetEntityType: node
+bundle: prvacki_lenslet
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 0
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_video:
+    weight: 2
+    label: above
+    settings:
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: true
+    third_party_settings: {  }
+    type: video_embed_field_video
+    region: content
+hidden:
+  links: true

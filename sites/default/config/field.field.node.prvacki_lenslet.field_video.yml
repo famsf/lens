@@ -1,0 +1,25 @@
+uuid: 1cee2b71-fefe-45d0-946b-6b59672b331a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video
+    - node.type.prvacki_lenslet
+  module:
+    - video_embed_field
+id: node.prvacki_lenslet.field_video
+field_name: field_video
+entity_type: node
+bundle: prvacki_lenslet
+label: Video
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    youtube: youtube
+    vimeo: vimeo
+    youtube_playlist: '0'
+field_type: video_embed_field
