@@ -45,12 +45,12 @@
           "@type": "WebPage",
           "name": "de Young Museum: {{ node_title }}",
           "description": "{{ node_teaser|striptags|raw|length > 100 ? node_teaser|striptags|slice(0, 100) ~ '...' : node_teaser }}",
-          "image": "{{ base_url  }}/themes/custom/lenstheme/images/dy-logo.png",
+          "image": "{{ artwork_thumbnail }}",
           "url": "{{ url('<current>') }}?amp",
           "publisher": {
             "@type": "Organization",
             "name": "de Young museum",
-            "logo": "{{ base_url  }}/themes/custom/lenstheme/images/dy-logo.png"
+            "logo": "{{ base_url  }}/themes/custom/lenstheme/images/dY.png"
           }
         }
       }

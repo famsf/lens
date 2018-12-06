@@ -25,4 +25,5 @@ function lenstheme_preprocess_video_embed_iframe__youtube(&$variables) {
   // Change the $variables array for all YouTube videos.
   $variables['query']['modestbranding'] = '1';
   $variables['query']['rel'] = '0';
+  $variables['query']['autoplay'] = '1';
 };
