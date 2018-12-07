@@ -165,7 +165,8 @@ mappings:
     target: field_item_id
     map:
       value: item_id
-    unique: {  }
+    unique:
+      value: '1'
   -
     target: field_medium
     map:
