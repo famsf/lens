@@ -1,0 +1,21 @@
+uuid: ee02c4e8-97e6-40ce-8c05-54ab0e8defc3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intro_title
+    - node.type.lenslet
+  module:
+    - text
+id: node.lenslet.field_intro_title
+field_name: field_intro_title
+entity_type: node
+bundle: lenslet
+label: 'Intro title'
+description: 'This text will appear only on the Google preview card that users see when they Lens an image.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

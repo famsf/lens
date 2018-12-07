@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.lenslet.field_dimensions
     - field.field.node.lenslet.field_dimensions_secondary_
     - field.field.node.lenslet.field_image
+    - field.field.node.lenslet.field_intro_title
     - field.field.node.lenslet.field_item_id
     - field.field.node.lenslet.field_medium
     - field.field.node.lenslet.field_mets
@@ -155,6 +156,14 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
     type: image_focal_point
+    region: content
+  field_intro_title:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
     region: content
   field_item_id:
     weight: 6

@@ -7,10 +7,8 @@ dependencies:
     - field.field.node.prvacki_lenslet.body
     - field.field.node.prvacki_lenslet.field_image
     - field.field.node.prvacki_lenslet.field_video
-    - image.style.lenslet_header
     - node.type.prvacki_lenslet
   module:
-    - amp
     - field_group
     - text
     - user
@@ -19,7 +17,6 @@ third_party_settings:
   field_group:
     group_prima:
       children:
-        - field_video
         - body
       parent_name: ''
       weight: 1
@@ -47,27 +44,17 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_image:
+  field_video:
     weight: 0
     label: hidden
     settings:
-      image_style: lenslet_header
-      image_link: ''
-      amp_layout: responsive
-      amp_fixed_height: 300
-    third_party_settings: {  }
-    type: amp_image
-    region: content
-  field_video:
-    weight: 3
-    label: hidden
-    settings:
+      autoplay: true
       responsive: true
       width: 854
       height: 480
-      autoplay: false
     third_party_settings: {  }
     type: video_embed_field_video
     region: content
 hidden:
+  field_image: true
   links: true

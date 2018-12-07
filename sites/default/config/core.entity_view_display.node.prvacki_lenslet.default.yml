@@ -17,10 +17,9 @@ third_party_settings:
   field_group:
     group_main_content:
       children:
-        - field_video
         - body
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: html_element
       format_settings:
         id: ''
@@ -55,7 +54,7 @@ content:
     type: image
     region: content
   field_video:
-    weight: 2
+    weight: 1
     label: above
     settings:
       responsive: true

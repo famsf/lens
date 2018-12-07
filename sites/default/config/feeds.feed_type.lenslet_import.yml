@@ -137,7 +137,7 @@ mappings:
       value: description
       summary: ''
     settings:
-      format: plain_text
+      format: full_html
   -
     target: field_country
     map:
