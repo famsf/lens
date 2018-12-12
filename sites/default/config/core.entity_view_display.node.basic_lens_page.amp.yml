@@ -8,12 +8,33 @@ dependencies:
     - field.field.node.basic_lens_page.field_artist_name
     - field.field.node.basic_lens_page.field_date
     - field.field.node.basic_lens_page.field_image
+    - field.field.node.basic_lens_page.field_intro_title
     - field.field.node.basic_lens_page.field_question
+    - image.style.lenslet_header
     - node.type.basic_lens_page
   module:
-    - image
-    - text
+    - amp
+    - field_group
     - user
+third_party_settings:
+  field_group:
+    group_description_content:
+      children:
+        - body
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: curator-notes
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Description content'
+      region: content
 id: node.basic_lens_page.amp
 targetEntityType: node
 bundle: basic_lens_page
@@ -21,22 +42,25 @@ mode: amp
 content:
   body:
     label: hidden
-    type: text_default
-    weight: 1
+    type: amp_text
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
   field_image:
-    type: image
+    type: amp_image
     weight: 0
     region: content
-    label: above
+    label: hidden
     settings:
-      image_style: ''
+      image_style: lenslet_header
       image_link: ''
+      amp_layout: responsive
+      amp_fixed_height: 300
     third_party_settings: {  }
 hidden:
   field_artist_name: true
   field_date: true
+  field_intro_title: true
   field_question: true
   links: true

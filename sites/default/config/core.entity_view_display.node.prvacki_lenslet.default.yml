@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.prvacki_lenslet.body
+    - field.field.node.prvacki_lenslet.field_header_image
     - field.field.node.prvacki_lenslet.field_image
+    - field.field.node.prvacki_lenslet.field_intro_title
     - field.field.node.prvacki_lenslet.field_video
     - node.type.prvacki_lenslet
   module:
@@ -44,7 +46,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_image:
+  field_header_image:
     weight: 0
     label: above
     settings:
@@ -53,6 +55,13 @@ content:
     third_party_settings: {  }
     type: image
     region: content
+  field_intro_title:
+    type: text_default
+    weight: 4
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_video:
     weight: 1
     label: above
@@ -64,5 +73,10 @@ content:
     third_party_settings: {  }
     type: video_embed_field_video
     region: content
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  links: true
+  field_image: true

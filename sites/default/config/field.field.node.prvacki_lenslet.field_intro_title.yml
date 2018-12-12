@@ -1,0 +1,21 @@
+uuid: 685a7ef0-e933-4359-a76e-c225f8006298
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intro_title
+    - node.type.prvacki_lenslet
+  module:
+    - text
+id: node.prvacki_lenslet.field_intro_title
+field_name: field_intro_title
+entity_type: node
+bundle: prvacki_lenslet
+label: 'Intro title'
+description: 'This is the title for the Google Lens preview card.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

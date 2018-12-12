@@ -43,7 +43,7 @@
   
         "arContent": {
           "@type": "WebPage",
-          "name": "de Young Museum: {{ node_title }}",
+          "name": "{{ intro_title }}",
           "description": "{{ node_teaser|striptags|raw|length > 100 ? node_teaser|striptags|slice(0, 100) ~ '...' : node_teaser }}",
           "image": "{{ artwork_thumbnail }}",
           "url": "{{ url('<current>') }}?amp",
@@ -65,6 +65,7 @@
     <js-placeholder token="{{ placeholder_token|raw }}">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
   </head>
   <body{{ attributes }}>
     {% if amp_skip_link %}

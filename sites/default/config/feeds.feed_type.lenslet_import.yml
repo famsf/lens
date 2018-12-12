@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.lenslet.field_dimensions
     - field.field.node.lenslet.field_dimensions_secondary_
     - field.field.node.lenslet.field_image
+    - field.field.node.lenslet.field_intro_title
     - field.field.node.lenslet.field_item_id
     - field.field.node.lenslet.field_medium
     - field.field.node.lenslet.field_question
@@ -120,6 +121,10 @@ custom_sources:
     label: 'Secondary dimensions'
     value: 'Secondary dimensions'
     machine_name: secondary_dimensions
+  card_header:
+    label: 'Card header'
+    value: 'Card header'
+    machine_name: card_header
 mappings:
   -
     target: title
@@ -220,3 +225,9 @@ mappings:
     map:
       value: secondary_dimensions
     unique: {  }
+  -
+    target: field_intro_title
+    map:
+      value: card_header
+    settings:
+      format: plain_text

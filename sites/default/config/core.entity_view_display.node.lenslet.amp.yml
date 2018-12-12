@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.lenslet.field_dimensions
     - field.field.node.lenslet.field_dimensions_secondary_
     - field.field.node.lenslet.field_image
+    - field.field.node.lenslet.field_intro_title
     - field.field.node.lenslet.field_item_id
     - field.field.node.lenslet.field_medium
     - field.field.node.lenslet.field_mets
@@ -213,6 +214,7 @@ hidden:
   field_date: true
   field_dimensions: true
   field_dimensions_secondary_: true
+  field_intro_title: true
   field_item_id: true
   field_mets: true
   field_region: true

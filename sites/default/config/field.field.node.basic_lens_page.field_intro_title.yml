@@ -1,0 +1,21 @@
+uuid: 1c1528ff-066c-4acb-8f5f-eea07787f289
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intro_title
+    - node.type.basic_lens_page
+  module:
+    - text
+id: node.basic_lens_page.field_intro_title
+field_name: field_intro_title
+entity_type: node
+bundle: basic_lens_page
+label: 'Intro title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text
