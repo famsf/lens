@@ -1,0 +1,21 @@
+uuid: f890b1e4-258a-4c41-89ae-56f0203e9f7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_question
+    - node.type.prvacki_lenslet
+  module:
+    - text
+id: node.prvacki_lenslet.field_question
+field_name: field_question
+entity_type: node
+bundle: prvacki_lenslet
+label: Question
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

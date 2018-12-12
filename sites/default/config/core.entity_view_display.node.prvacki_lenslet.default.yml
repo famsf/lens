@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.prvacki_lenslet.field_header_image
     - field.field.node.prvacki_lenslet.field_image
     - field.field.node.prvacki_lenslet.field_intro_title
+    - field.field.node.prvacki_lenslet.field_question
     - field.field.node.prvacki_lenslet.field_video
     - node.type.prvacki_lenslet
   module:
@@ -62,6 +63,13 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
+  field_question:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   field_video:
     weight: 1
     label: above

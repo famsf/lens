@@ -19,7 +19,7 @@ function lenstheme_preprocess_html(&$variables) {
   $variables['node_teaser'] = $node->get('body')->value;
   $variables['base_url'] = $GLOBALS['base_url'];
   $variables['artwork_thumbnail'] = file_create_url($node->get('field_image')->entity->getFileUri());
-  $variables['intro_title'] = $node->get('field_intro_title')->value;
+  $variables['intro_title'] = $node->get('field_question')->value;
 };
 
 function lenstheme_preprocess_video_embed_iframe__youtube(&$variables) {

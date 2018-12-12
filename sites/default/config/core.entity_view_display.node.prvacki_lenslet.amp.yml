@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.prvacki_lenslet.field_header_image
     - field.field.node.prvacki_lenslet.field_image
     - field.field.node.prvacki_lenslet.field_intro_title
+    - field.field.node.prvacki_lenslet.field_question
     - field.field.node.prvacki_lenslet.field_video
     - image.style.lenslet_header
     - node.type.prvacki_lenslet
@@ -73,4 +74,5 @@ content:
 hidden:
   field_image: true
   field_intro_title: true
+  field_question: true
   links: true
