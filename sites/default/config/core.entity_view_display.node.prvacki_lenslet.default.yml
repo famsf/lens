@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.prvacki_lenslet.body
+    - field.field.node.prvacki_lenslet.field_audio
     - field.field.node.prvacki_lenslet.field_header_image
     - field.field.node.prvacki_lenslet.field_image
     - field.field.node.prvacki_lenslet.field_intro_title
@@ -22,7 +23,7 @@ third_party_settings:
       children:
         - body
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: html_element
       format_settings:
         id: ''
@@ -47,6 +48,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_audio:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_header_image:
     weight: 0
     label: above
@@ -58,13 +67,13 @@ content:
     region: content
   field_intro_title:
     type: text_default
-    weight: 4
+    weight: 5
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_question:
-    weight: 5
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -82,7 +91,7 @@ content:
     type: video_embed_field_video
     region: content
   links:
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }

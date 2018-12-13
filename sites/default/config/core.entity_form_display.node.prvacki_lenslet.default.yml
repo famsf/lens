@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.prvacki_lenslet.body
+    - field.field.node.prvacki_lenslet.field_audio
     - field.field.node.prvacki_lenslet.field_header_image
     - field.field.node.prvacki_lenslet.field_image
     - field.field.node.prvacki_lenslet.field_intro_title
@@ -38,6 +39,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_audio:
+    weight: 29
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_header_image:
     weight: 26
     settings:
