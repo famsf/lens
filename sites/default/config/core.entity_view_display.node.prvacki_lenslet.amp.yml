@@ -29,14 +29,15 @@ third_party_settings:
       weight: 3
       format_type: html_element
       format_settings:
-        id: ''
-        classes: curator-notes
+        label: 'Primary content'
         element: div
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
+        id: ''
+        classes: prvacki-notes
       label: 'Primary content'
       region: content
 id: node.prvacki_lenslet.amp

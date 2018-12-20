@@ -166,8 +166,8 @@ display:
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 30
-            word_boundary: false
+            max_length: 25
+            word_boundary: true
             ellipsis: true
             more_link: false
             more_link_text: ''
