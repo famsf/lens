@@ -11,7 +11,7 @@ dependencies:
     - field.field.node.prvacki_lenslet.field_image
     - field.field.node.prvacki_lenslet.field_question
     - field.field.node.prvacki_lenslet.field_video
-    - image.style.lenslet_header
+    - image.style.lens
     - node.type.prvacki_lenslet
   module:
     - amp
@@ -66,7 +66,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: lenslet_header
+      image_style: lens
       image_link: ''
       amp_layout: responsive
       amp_fixed_height: 300
