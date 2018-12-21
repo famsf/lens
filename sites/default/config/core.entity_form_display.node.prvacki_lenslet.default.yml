@@ -8,18 +8,61 @@ dependencies:
     - field.field.node.prvacki_lenslet.field_audio
     - field.field.node.prvacki_lenslet.field_header_image
     - field.field.node.prvacki_lenslet.field_image
-    - field.field.node.prvacki_lenslet.field_intro_title
     - field.field.node.prvacki_lenslet.field_question
     - field.field.node.prvacki_lenslet.field_video
     - image.style.medium
-    - image.style.thumbnail
     - node.type.prvacki_lenslet
   module:
+    - field_group
     - focal_point
     - image
     - path
     - text
     - video_embed_field
+third_party_settings:
+  field_group:
+    group_lensl:
+      children:
+        - field_header_image
+        - field_image
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Lenslet images'
+      region: content
+    group_lenslet_embedded_media:
+      children:
+        - field_video
+        - field_audio
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Lenslet embedded media'
+      region: content
+    group_google_search_card_content:
+      children:
+        - field_artist_name
+        - field_question
+      parent_name: ''
+      weight: 9
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'This data is not displayed on the Lenslet but is used by the Google Search Card in the Lens app.'
+        required_fields: true
+      label: 'Google Search Card Content'
+      region: content
 id: node.prvacki_lenslet.default
 targetEntityType: node
 bundle: prvacki_lenslet
@@ -27,7 +70,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 5
+    weight: 3
     settings:
       rows: 9
       summary_rows: 3
@@ -36,12 +79,12 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_artist_name:
-    weight: 26
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -49,7 +92,7 @@ content:
     type: string_textfield
     region: content
   field_audio:
-    weight: 4
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -57,30 +100,22 @@ content:
     type: string_textfield
     region: content
   field_header_image:
-    weight: 1
+    weight: 2
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
       preview_link: true
       offsets: '50,50'
+      progress_indicator: throbber
     third_party_settings: {  }
     type: image_focal_point
     region: content
   field_image:
-    weight: 2
+    weight: 3
     settings:
       preview_image_style: medium
       progress_indicator: throbber
     third_party_settings: {  }
     type: image_image
-    region: content
-  field_intro_title:
-    weight: 12
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textfield
     region: content
   field_question:
     weight: 13
@@ -91,14 +126,14 @@ content:
     type: text_textfield
     region: content
   field_video:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: video_embed_field_textfield
     region: content
   path:
     type: path
-    weight: 10
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -106,21 +141,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 6
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 11
+    weight: 10
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 7
     region: content
     third_party_settings: {  }
   title:
@@ -133,7 +168,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60

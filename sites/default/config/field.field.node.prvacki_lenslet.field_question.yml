@@ -12,7 +12,7 @@ field_name: field_question
 entity_type: node
 bundle: prvacki_lenslet
 label: Question
-description: ''
+description: 'This field will populate the intro content on the Google Search Card within the Lens app.'
 required: false
 translatable: true
 default_value: {  }

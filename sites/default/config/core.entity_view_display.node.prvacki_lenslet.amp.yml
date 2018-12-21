@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.prvacki_lenslet.field_audio
     - field.field.node.prvacki_lenslet.field_header_image
     - field.field.node.prvacki_lenslet.field_image
-    - field.field.node.prvacki_lenslet.field_intro_title
     - field.field.node.prvacki_lenslet.field_question
     - field.field.node.prvacki_lenslet.field_video
     - image.style.lenslet_header
@@ -86,6 +85,5 @@ content:
 hidden:
   field_artist_name: true
   field_image: true
-  field_intro_title: true
   field_question: true
   links: true

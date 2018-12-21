@@ -11,7 +11,7 @@ id: node.prvacki_lenslet.body
 field_name: body
 entity_type: node
 bundle: prvacki_lenslet
-label: Body
+label: Description
 description: ''
 required: false
 translatable: true

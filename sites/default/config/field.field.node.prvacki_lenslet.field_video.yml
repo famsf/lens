@@ -11,8 +11,8 @@ id: node.prvacki_lenslet.field_video
 field_name: field_video
 entity_type: node
 bundle: prvacki_lenslet
-label: Video
-description: ''
+label: 'Video URL'
+description: 'Paste the actual video URL in this field (*not* the embed code), e.g. "https://vimeo.com/167773224". Accepts Vimeo or YouTube URLs.'
 required: false
 translatable: true
 default_value: {  }

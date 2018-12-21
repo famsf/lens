@@ -10,7 +10,7 @@ field_name: field_audio
 entity_type: node
 bundle: prvacki_lenslet
 label: 'Audio file URL'
-description: 'Enter a complete URL here; must begin with "https".'
+description: 'Enter a complete URL here; must begin with "https". First you should upload an audio file (mp3, wav, aac) via Content > Add media > Audio. External URLs will work, too.'
 required: false
 translatable: false
 default_value: {  }
