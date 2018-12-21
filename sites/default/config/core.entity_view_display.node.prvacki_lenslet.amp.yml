@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.amp
     - field.field.node.prvacki_lenslet.body
+    - field.field.node.prvacki_lenslet.field_artist_name
     - field.field.node.prvacki_lenslet.field_audio
     - field.field.node.prvacki_lenslet.field_header_image
     - field.field.node.prvacki_lenslet.field_image
@@ -83,6 +84,7 @@ content:
     type: video_embed_field_video
     region: content
 hidden:
+  field_artist_name: true
   field_image: true
   field_intro_title: true
   field_question: true
