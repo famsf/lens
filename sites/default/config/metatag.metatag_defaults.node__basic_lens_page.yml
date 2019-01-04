@@ -1,0 +1,8 @@
+uuid: a2988834-4132-42d4-8dd3-3177cf2e9818
+langcode: en
+status: true
+dependencies: {  }
+id: node__basic_lens_page
+label: 'Content: Basic Lens page'
+tags:
+  canonical_url: '[node:url]?amp'

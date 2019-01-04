@@ -1,0 +1,8 @@
+uuid: 9be04b90-66e4-499c-8119-1d0659f89752
+langcode: en
+status: true
+dependencies: {  }
+id: node__lenslet
+label: 'Content: Lenslet'
+tags:
+  canonical_url: '[node:url]?amp'
