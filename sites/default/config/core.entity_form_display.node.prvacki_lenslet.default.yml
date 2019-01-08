@@ -42,6 +42,7 @@ third_party_settings:
         - field_video
         - field_audio
         - field_iframe
+        - field_iframe_placeholder
       parent_name: ''
       weight: 2
       format_type: fieldset
@@ -121,7 +122,7 @@ content:
     type: string_textfield
     region: content
   field_iframe_placeholder:
-    weight: 26
+    weight: 7
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
