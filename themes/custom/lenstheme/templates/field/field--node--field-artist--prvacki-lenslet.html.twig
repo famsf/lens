@@ -22,18 +22,10 @@
  */
 #}
 {% for item in items %}
-  <div class="iframe">
-    <amp-iframe width="300"
-      title="Google Map"
-      height="200"
-      layout="responsive"
-      sandbox="allow-scripts allow-same-origin"
-      frameborder="0"
-      src="{{ item.content }}">
-      <amp-img layout="fill"
-        src="{{ element['#object'].field_iframe_placeholder.value }}"
-        placeholder>
-      </amp-img>
-    </amp-iframe>
+  <div class="about-the-artist">
+    <div class="artist-inner">
+      <h3>/ {{ label }}</h3>
+      {{ item.content }}
+    </div>
   </div>
 {% endfor %}

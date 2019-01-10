@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.amp
     - field.field.node.prvacki_lenslet.body
+    - field.field.node.prvacki_lenslet.field_artist
     - field.field.node.prvacki_lenslet.field_artist_name
     - field.field.node.prvacki_lenslet.field_audio
     - field.field.node.prvacki_lenslet.field_header_image
@@ -29,7 +30,7 @@ third_party_settings:
         - body
         - field_iframe
       parent_name: ''
-      weight: 3
+      weight: 2
       format_type: html_element
       format_settings:
         label: 'Primary content'
@@ -55,6 +56,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_artist:
+    type: entity_reference_entity_view
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
   field_audio:
     type: string
     weight: 1

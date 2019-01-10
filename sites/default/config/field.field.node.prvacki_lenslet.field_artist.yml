@@ -1,0 +1,32 @@
+uuid: b930cd55-1404-4cb7-87ab-d14686de7b8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_artist
+    - node.type.artist
+    - node.type.prvacki_lenslet
+  content:
+    - 'node:artist:fad79bfd-b0ae-4fce-8261-7c3101e0d583'
+id: node.prvacki_lenslet.field_artist
+field_name: field_artist
+entity_type: node
+bundle: prvacki_lenslet
+label: About
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: fad79bfd-b0ae-4fce-8261-7c3101e0d583
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      artist: artist
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
