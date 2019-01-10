@@ -13,7 +13,7 @@ field_name: field_artist
 entity_type: node
 bundle: prvacki_lenslet
 label: About
-description: ''
+description: 'This field references the content in the artist bios. It displays the description/body but not the artist''s name.'
 required: false
 translatable: true
 default_value:
