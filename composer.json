@@ -13,7 +13,7 @@
         "drupal/pathauto": "^1.1",
         "drupal/image_effects": "~2.0",
         "drupal/feeds": "^3.0@alpha",
-	"drupal/core": "~8.6.4",
+	"drupal/core": "~8.6.6",
         "drupal/video_embed_field": "^2.0",
         "drupal/audiofield": "^1.8"
     },

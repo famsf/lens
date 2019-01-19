@@ -6007,18 +6007,124 @@
         }
     },
     {
-        "name": "drupal/core",
-        "version": "8.6.4",
-        "version_normalized": "8.6.4.0",
+        "name": "drupal/audiofield",
+        "version": "1.8.0",
+        "version_normalized": "1.8.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/drupal/core.git",
-            "reference": "652bdf56b5e9e84648ea53ac7b1e7e73e7608ef4"
+            "url": "https://git.drupal.org/project/audiofield",
+            "reference": "8.x-1.8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/drupal/core/zipball/652bdf56b5e9e84648ea53ac7b1e7e73e7608ef4",
-            "reference": "652bdf56b5e9e84648ea53ac7b1e7e73e7608ef4",
+            "url": "https://ftp.drupal.org/files/projects/audiofield-8.x-1.8.zip",
+            "reference": "8.x-1.8",
+            "shasum": "a2e4c5b7f81ec6d3d015b22a63560fd1a8f56682"
+        },
+        "require": {
+            "drupal/core": "~8.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.8",
+                "datestamp": "1543249980",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            },
+            "drush": {
+                "services": {
+                    "drush.services.yml": "^9"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Daniel Moberly",
+                "homepage": "https://www.drupal.org/u/danielmoberly",
+                "role": "Maintainer"
+            },
+            {
+                "name": "josipsaric",
+                "homepage": "https://www.drupal.org/user/3063287"
+            },
+            {
+                "name": "tamerzg",
+                "homepage": "https://www.drupal.org/user/464564"
+            }
+        ],
+        "description": "AudioField Module",
+        "homepage": "https://www.drupal.org/project/audiofield",
+        "support": {
+            "source": "http://cgit.drupalcode.org/audiofield",
+            "issues": "https://www.drupal.org/project/issues/audiofield"
+        }
+    },
+    {
+        "name": "typo3/phar-stream-wrapper",
+        "version": "v2.0.1",
+        "version_normalized": "2.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/TYPO3/phar-stream-wrapper.git",
+            "reference": "0469d9fefa0146ea4299d3b11cfbb76faa7045bf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/TYPO3/phar-stream-wrapper/zipball/0469d9fefa0146ea4299d3b11cfbb76faa7045bf",
+            "reference": "0469d9fefa0146ea4299d3b11cfbb76faa7045bf",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.3.3|^7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.36"
+        },
+        "time": "2018-10-18T08:46:28+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "TYPO3\\PharStreamWrapper\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Interceptors for PHP's native phar:// stream handling",
+        "homepage": "https://typo3.org/",
+        "keywords": [
+            "phar",
+            "php",
+            "security",
+            "stream-wrapper"
+        ]
+    },
+    {
+        "name": "drupal/core",
+        "version": "8.6.7",
+        "version_normalized": "8.6.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/drupal/core.git",
+            "reference": "e0a09bda1da7552204464894811a59387608c9f9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/drupal/core/zipball/e0a09bda1da7552204464894811a59387608c9f9",
+            "reference": "e0a09bda1da7552204464894811a59387608c9f9",
             "shasum": ""
         },
         "require": {
@@ -6062,6 +6168,7 @@
             "symfony/validator": "~3.4.0",
             "symfony/yaml": "~3.4.5",
             "twig/twig": "^1.35.0",
+            "typo3/phar-stream-wrapper": "^2.0.1",
             "zendframework/zend-diactoros": "^1.1",
             "zendframework/zend-feed": "^2.4"
         },
@@ -6190,7 +6297,7 @@
             "symfony/debug": "^3.4.0",
             "symfony/phpunit-bridge": "^3.4.3"
         },
-        "time": "2018-12-05T11:58:02+00:00",
+        "time": "2019-01-16T23:30:03+00:00",
         "type": "drupal-core",
         "extra": {
             "merge-plugin": {
@@ -6245,69 +6352,5 @@
             "GPL-2.0-or-later"
         ],
         "description": "Drupal is an open source content management platform powering millions of websites and applications."
-    },
-    {
-        "name": "drupal/audiofield",
-        "version": "1.8.0",
-        "version_normalized": "1.8.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://git.drupal.org/project/audiofield",
-            "reference": "8.x-1.8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/audiofield-8.x-1.8.zip",
-            "reference": "8.x-1.8",
-            "shasum": "a2e4c5b7f81ec6d3d015b22a63560fd1a8f56682"
-        },
-        "require": {
-            "drupal/core": "~8.0"
-        },
-        "type": "drupal-module",
-        "extra": {
-            "branch-alias": {
-                "dev-1.x": "1.x-dev"
-            },
-            "drupal": {
-                "version": "8.x-1.8",
-                "datestamp": "1543249980",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
-            },
-            "drush": {
-                "services": {
-                    "drush.services.yml": "^9"
-                }
-            }
-        },
-        "installation-source": "dist",
-        "notification-url": "https://packages.drupal.org/8/downloads",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "authors": [
-            {
-                "name": "Daniel Moberly",
-                "homepage": "https://www.drupal.org/u/danielmoberly",
-                "role": "Maintainer"
-            },
-            {
-                "name": "josipsaric",
-                "homepage": "https://www.drupal.org/user/3063287"
-            },
-            {
-                "name": "tamerzg",
-                "homepage": "https://www.drupal.org/user/464564"
-            }
-        ],
-        "description": "AudioField Module",
-        "homepage": "https://www.drupal.org/project/audiofield",
-        "support": {
-            "source": "http://cgit.drupalcode.org/audiofield",
-            "issues": "https://www.drupal.org/project/issues/audiofield"
-        }
     }
 ]
