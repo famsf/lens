@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.prvacki_lenslet.field_artist
     - field.field.node.prvacki_lenslet.field_artist_name
     - field.field.node.prvacki_lenslet.field_audio
+    - field.field.node.prvacki_lenslet.field_audio_credit
     - field.field.node.prvacki_lenslet.field_header_image
     - field.field.node.prvacki_lenslet.field_iframe
     - field.field.node.prvacki_lenslet.field_iframe_placeholder
@@ -42,6 +43,7 @@ third_party_settings:
       children:
         - field_video
         - field_audio
+        - field_audio_credit
         - field_iframe
         - field_iframe_placeholder
       parent_name: ''
@@ -113,6 +115,14 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_audio_credit:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
   field_header_image:
     weight: 2
     settings:
@@ -124,7 +134,7 @@ content:
     type: image_focal_point
     region: content
   field_iframe:
-    weight: 6
+    weight: 7
     settings:
       size: 60
       placeholder: ''
@@ -132,7 +142,7 @@ content:
     type: string_textfield
     region: content
   field_iframe_placeholder:
-    weight: 7
+    weight: 8
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail

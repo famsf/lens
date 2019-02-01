@@ -1,0 +1,21 @@
+uuid: d0d4fad3-eb49-45e3-aa9b-528a3b0fc913
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_audio_credit
+    - node.type.prvacki_lenslet
+  module:
+    - text
+id: node.prvacki_lenslet.field_audio_credit
+field_name: field_audio_credit
+entity_type: node
+bundle: prvacki_lenslet
+label: 'Audio credit'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text
