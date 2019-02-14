@@ -23,8 +23,10 @@
 #}
 <div class="audio">
 {% for item in items %}
-  <audio width="auto" height="auto" src="{{ item.content }}" controls controlsList="nodownload">
-    Your browser doesn't support HTML5 audio.
-  <audio>
+  <audio controls width="auto" height="auto"
+    src="{{ item.content }}"
+    controlsList="nodownload">
+    <div fallback>Your browser doesn't support HTML5 audio.</div>
+  </audio>
 {% endfor %}
 </div>

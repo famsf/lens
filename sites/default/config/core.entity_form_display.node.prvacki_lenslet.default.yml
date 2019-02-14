@@ -13,8 +13,10 @@ dependencies:
     - field.field.node.prvacki_lenslet.field_iframe_placeholder
     - field.field.node.prvacki_lenslet.field_image
     - field.field.node.prvacki_lenslet.field_question
+    - field.field.node.prvacki_lenslet.field_search_card_image
     - field.field.node.prvacki_lenslet.field_video
     - image.style.medium
+    - image.style.thumbnail
     - node.type.prvacki_lenslet
   module:
     - field_group
@@ -58,6 +60,7 @@ third_party_settings:
       region: content
     group_google_search_card_content:
       children:
+        - field_search_card_image
         - field_artist_name
         - field_question
       parent_name: ''
@@ -100,7 +103,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_artist_name:
-    weight: 12
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -158,12 +161,20 @@ content:
     type: image_image
     region: content
   field_question:
-    weight: 13
+    weight: 6
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: text_textfield
+    region: content
+  field_search_card_image:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
     region: content
   field_video:
     weight: 4

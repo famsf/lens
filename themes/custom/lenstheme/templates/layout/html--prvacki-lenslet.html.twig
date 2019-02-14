@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Theme override for the basic structure of a single Drupal page.
+ *
+ * Variables:
+ * - logged_in: A flag indicating if user is logged in.
+ * - root_path: The root path of the current page (e.g., node, admin, user).
+ * - node_type: The content type for the current node, if the page is a node.
+ * - head_title: List of text elements that make up the head_title variable.
+ *   May contain or more of the following:
+ *   - title: The title of the page.
+ *   - name: The name of the site.
+ *   - slogan: The slogan of the site.
+ * - page_top: Initial rendered markup. This should be printed before 'page'.
+ * - page: The rendered page markup.
+ * - page_bottom: Closing rendered markup. This variable should be printed after
+ *   'page'.
+ * - db_offline: A flag indicating if the database is offline.
+ * - placeholder_token: The token for generating head, css, js and js-bottom
+ *   placeholders.
+ * - amp_skip_link: Markup for skip link.
+ *
+ * @see template_preprocess_html()
+ */
+#}
+
+<!doctype html>
+<html amp{{ html_attributes }}>
+  <head>
+    <head-placeholder token="{{ placeholder_token|raw }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <meta name="application-name" content="de Young Museum" />
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.googleapis.com",
+        "@type": "ARArtifact",
+        "arTarget": {
+          "@type": "ARImageTarget",
+          "name": "{{ node_title }}",
+          "description": "{{ artist_name }}",
+          "image": "{{ artwork_thumbnail }}"
+        },
+  
+        "arContent": {
+          "@type": "WebPage",
+          "name": "{{ intro_title }}",
+          "description": "{{ node_teaser|striptags|raw|length > 100 ? node_teaser|striptags|slice(0, 100) ~ '...' : node_teaser }}",
+          "image": "{{ search_card_image }}",
+          "url": "{{ url('<current>') }}?amp",
+          "publisher": {
+            "@type": "Organization",
+            "name": "de Young museum",
+            "logo": "{{ base_url  }}/themes/custom/lenstheme/images/dY.png"
+          }
+        }
+      }
+    </script>
+    <style amp-boilerplate>{% spaceless %}{% include '@amptheme/amp-css/amp-boilerplate-styles-min.html.twig' %}{% endspaceless %}</style><noscript><style amp-boilerplate>{% spaceless %}{% include '@amptheme/amp-css/amp-boilerplate-styles-noscript-min.html.twig' %}{% endspaceless %}</style></noscript>
+    <style amp-custom>
+      {% include active_theme_path() ~ '/templates/amp-css/amp-custom-styles.html.twig' %}
+    </style>
+    <link rel="stylesheet" href="https://use.typekit.net/tpb7nan.css">
+    <link rel="icon" type="image/png" href="{{ base_url }}/themes/custom/lenstheme/images/dY.png" sizes="32x32">
+    {# Only JS from an AMP library is processed in the placeholder. #}
+    <js-placeholder token="{{ placeholder_token|raw }}">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+    <script async custom-element="amp-audio" src="https://cdn.ampproject.org/v0/amp-audio-0.1.js"></script>
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+  </head>
+  <body{{ attributes }}>
+    {% if amp_skip_link %}
+      {{ amp_skip_link }}
+    {% endif %}
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+  </body>
+</html>
