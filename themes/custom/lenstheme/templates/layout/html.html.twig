@@ -26,6 +26,13 @@
 #}
 
 <!doctype html>
+
+{% if artwork_thumbnail is not empty %}
+  {% set main_image = base_url ~ file_url(artwork_thumbnail) %}
+{% endif %}
+{% set logo_uri = base_url ~ '/themes/custom/lenstheme/images/dY.png' %}
+{% set amp_url = url('<current>') %}
+
 <html amp{{ html_attributes }}>
   <head>
     <head-placeholder token="{{ placeholder_token|raw }}">
@@ -39,19 +46,19 @@
           "@type": "ARImageTarget",
           "name": "{{ node_title }}",
           "description": "{{ artist_name }}",
-          "image": "{{ artwork_thumbnail }}"
+          "image": "{{ main_image }}"
         },
   
         "arContent": {
           "@type": "WebPage",
           "name": "{{ intro_title }}",
           "description": "{{ node_teaser|striptags|raw|length > 100 ? node_teaser|striptags|slice(0, 100) ~ '...' : node_teaser }}",
-          "image": "{{ artwork_thumbnail }}",
-          "url": "{{ url('<current>') }}?amp",
+          "image": "{{ main_image }}",
+          "url": "{{ amp_url }}?amp",
           "publisher": {
             "@type": "Organization",
             "name": "de Young museum",
-            "logo": "{{ base_url  }}/themes/custom/lenstheme/images/dY.png"
+            "logo": "{{ logo_uri }}"
           }
         }
       }
