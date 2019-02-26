@@ -7,16 +7,16 @@ dependencies:
 id: lenslet_path
 label: 'Lenslet path'
 type: 'canonical_entities:node'
-pattern: 'lenslet/[node:title]'
+pattern: 'objects/[node:title]'
 selection_criteria:
-  dad67da5-4b7f-4a15-88eb-3edb5b3a6ca0:
+  f3f6fff3-392c-4179-a47b-a56eecc60f34:
     id: node_type
     bundles:
       lenslet: lenslet
     negate: false
     context_mapping:
       node: node
-    uuid: dad67da5-4b7f-4a15-88eb-3edb5b3a6ca0
+    uuid: f3f6fff3-392c-4179-a47b-a56eecc60f34
 selection_logic: and
 weight: -5
 relationships: {  }
