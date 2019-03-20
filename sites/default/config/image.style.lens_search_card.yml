@@ -1,0 +1,17 @@
+uuid: 9a9d1b1c-7b0a-40f8-9849-f7ce518fa77f
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: lens_search_card
+label: 'Lens search card 1280x720'
+effects:
+  090f2c36-b5d0-488b-99df-2d213615f370:
+    uuid: 090f2c36-b5d0-488b-99df-2d213615f370
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1280
+      height: 720
+      crop_type: focal_point

@@ -32,6 +32,7 @@
 {% endif %}
 {% set logo_uri = base_url ~ '/themes/custom/lenstheme/images/dY.png' %}
 {% set amp_url = url('<current>') %}
+{% set image = file_url(artwork_thumbnail) %}
 
 <html amp{{ html_attributes }}>
   <head>
@@ -53,7 +54,7 @@
           "@type": "WebPage",
           "name": "{{ intro_title }}",
           "description": "{{ node_teaser|striptags|raw|length > 100 ? node_teaser|striptags|slice(0, 100) ~ '...' : node_teaser }}",
-          "image": "{{ main_image }}",
+          "image": "{{ image }}",
           "url": "{{ amp_url }}?amp",
           "publisher": {
             "@type": "Organization",
