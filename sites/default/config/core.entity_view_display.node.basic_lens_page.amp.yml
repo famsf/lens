@@ -42,9 +42,10 @@ mode: amp
 content:
   body:
     label: hidden
-    type: amp_text
+    type: amp_text_trimmed
     weight: 2
-    settings: {  }
+    settings:
+      trim_length: 100
     third_party_settings: {  }
     region: content
   field_image:
