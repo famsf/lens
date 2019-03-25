@@ -54,7 +54,7 @@
           "@type": "WebPage",
           "name": "{{ intro_title }}",
           "description": "{{ node_teaser|striptags|raw|length > 100 ? node_teaser|striptags|slice(0, 100) ~ '...' : node_teaser }}",
-          "image": "{{ image }}",
+          "image": "{{ main_image }}",
           "url": "{{ amp_url }}?amp",
           "publisher": {
             "@type": "Organization",
