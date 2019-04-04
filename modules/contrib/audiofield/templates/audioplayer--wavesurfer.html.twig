@@ -15,10 +15,10 @@
 <div class="audiofield">
   {% for file in files %}
     <div class="audiofield-wavesurfer" id="wavesurfer_{{ file.id }}">
-      <div class="waveform"></div>
+      <div id="audiofield-audio-player-{{ file.id }}" class="waveform"></div>
       <div class="player-button playpause play">Play</div>
       <input type="range" class="volume" min="0" max="10" value="{{ settings.audio_player_initial_volume}}">
-      <label>{{ file.description }}</label>
+      <label for="audiofield-audio-player-{{ file.id }}">{{ file.description }}</label>
     </div>
   {% endfor %}
 </div>

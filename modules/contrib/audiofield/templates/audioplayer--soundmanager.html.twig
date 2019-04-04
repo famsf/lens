@@ -16,9 +16,9 @@
 #}
 <div class="audiofield">
   {% for file in files %}
-    <div class="soundmanageraudio_frame">
+    <div id="audiofield-audio-player-{{ file.id }}" class="soundmanageraudio_frame">
       <a href="{{ file.url }}" class="sm2_button">{{ file.description }}</a>
-      <label>{{ file.description }}</label>
+      <label for="audiofield-audio-player-{{ file.id }}">{{ file.description }}</label>
     </div>
   {% endfor %}
 </div>

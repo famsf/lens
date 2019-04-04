@@ -75,7 +75,8 @@ class SoundManagerAudioPlayer extends AudioFieldPluginBase {
    */
   public function getPluginLibraryVersion() {
     // Parse the JSON file for version info.
-    $library_data = Json::decode(file_get_contents(drupal_realpath(DRUPAL_ROOT . $this->getPluginLibraryPath() . '/package.json')));
+    $library_path = $this->fileSystem->realpath(DRUPAL_ROOT . $this->getPluginLibraryPath() . '/package.json');
+    $library_data = Json::decode(file_get_contents($library_path));
     return $library_data['version'];
   }
 

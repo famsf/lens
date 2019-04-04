@@ -13,7 +13,9 @@ use Drupal\Core\Asset\LibraryDiscovery;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Messenger\Messenger;
-use Drupal\Core\Logger\LoggerChannelFactoryInterface ;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drupal\Core\File\FileSystem;
+use Drupal\file\Entity\File;
 
 /**
  * Base class for audiofield plugins. Includes global functions.
@@ -35,6 +37,13 @@ abstract class AudioFieldPluginBase extends PluginBase implements ContainerFacto
   protected $messenger;
 
   /**
+   * File System service.
+   *
+   * @var Drupal\Core\File\FileSystem
+   */
+  protected $fileSystem;
+
+  /**
    * Messenger service.
    *
    * @var Drupal\Core\Logger\LoggerChannelFactoryInterface
@@ -44,12 +53,13 @@ abstract class AudioFieldPluginBase extends PluginBase implements ContainerFacto
   /**
    * {@inheritdoc}
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, LibraryDiscovery $library_discovery, Messenger $messenger, LoggerChannelFactoryInterface  $logger_factory) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, LibraryDiscovery $library_discovery, Messenger $messenger, LoggerChannelFactoryInterface $logger_factory, FileSystem $file_system) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
     $this->libraryDiscovery = $library_discovery;
     $this->messenger = $messenger;
     $this->loggerFactory = $logger_factory;
+    $this->fileSystem = $file_system;
   }
 
   /**
@@ -62,7 +72,8 @@ abstract class AudioFieldPluginBase extends PluginBase implements ContainerFacto
       $plugin_definition,
       $container->get('library.discovery'),
       $container->get('messenger'),
-      $container->get('logger.factory')
+      $container->get('logger.factory'),
+      $container->get('file_system')
     );
   }
 
@@ -352,7 +363,7 @@ abstract class AudioFieldPluginBase extends PluginBase implements ContainerFacto
    */
   private function loadFileFromItem($item) {
     // Load the associated file.
-    return file_load($item->get('target_id')->getCastedValue());
+    return File::load($item->get('target_id')->getCastedValue());
   }
 
   /**
@@ -413,7 +424,7 @@ abstract class AudioFieldPluginBase extends PluginBase implements ContainerFacto
    * @param \Drupal\file\Plugin\Field\FieldType\FileItem|\Drupal\link\Plugin\Field\FieldType\LinkItem $item
    *   Item for which we are determining source.
    *
-   * @return string
+   * @return \Drupal\Core\Url|string
    *   The source URL of an entity.
    */
   private function getAudioSource($item) {
@@ -536,6 +547,13 @@ abstract class AudioFieldPluginBase extends PluginBase implements ContainerFacto
     foreach ($items as $item) {
       // Get the source URL for this item.
       $source_url = $this->getAudioSource($item);
+
+      // Set the download attribute to the filename.
+      $source_path = $source_url->getUri();
+      $filename = basename($source_path);
+      $attributes = $source_url->getOption('attributes');
+      $attributes['download'] = $filename;
+      $source_url->setOption('attributes', $attributes);
 
       // Get the entity description for this item.
       $entity_description = $this->getAudioDescription($item);

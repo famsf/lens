@@ -103,7 +103,8 @@ class WordPressAudioPlayer extends AudioFieldPluginBase {
    */
   public function getPluginLibraryVersion() {
     // Parse the audio-player.js file for version info.
-    $library_data = file_get_contents(drupal_realpath(DRUPAL_ROOT . $this->getPluginLibraryPath() . '/audio-player.js'));
+    $library_path = $this->fileSystem->realpath(DRUPAL_ROOT . $this->getPluginLibraryPath() . '/audio-player.js');
+    $library_data = file_get_contents($library_path);
     $matches = [];
     preg_match('%SWFObject v([0-9\.]+).*%', $library_data, $matches);
     return $matches[1];

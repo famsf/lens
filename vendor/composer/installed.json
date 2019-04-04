@@ -1397,7 +1397,7 @@
         "version_normalized": "1.5.0.0",
         "source": {
             "type": "git",
-            "url": "https://git.drupal.org/project/token",
+            "url": "https://git.drupalcode.org/project/token.git",
             "reference": "8.x-1.5"
         },
         "dist": {
@@ -1466,7 +1466,7 @@
         "version_normalized": "2.1.0.0",
         "source": {
             "type": "git",
-            "url": "https://git.drupal.org/project/amp",
+            "url": "https://git.drupalcode.org/project/amp.git",
             "reference": "8.x-2.1"
         },
         "dist": {
@@ -1549,7 +1549,7 @@
         "version_normalized": "1.3.0.0",
         "source": {
             "type": "git",
-            "url": "https://git.drupal.org/project/schema_metatag",
+            "url": "https://git.drupalcode.org/project/schema_metatag.git",
             "reference": "8.x-1.3"
         },
         "dist": {
@@ -1608,7 +1608,7 @@
         "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
-            "url": "https://git.drupal.org/project/amptheme",
+            "url": "https://git.drupalcode.org/project/amptheme.git",
             "reference": "8.x-1.1"
         },
         "dist": {
@@ -1665,7 +1665,7 @@
         "version_normalized": "1.3.0.0",
         "source": {
             "type": "git",
-            "url": "https://git.drupal.org/project/pathauto",
+            "url": "https://git.drupalcode.org/project/pathauto.git",
             "reference": "8.x-1.3"
         },
         "dist": {
@@ -1824,7 +1824,7 @@
         "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
-            "url": "https://git.drupal.org/project/file_mdm",
+            "url": "https://git.drupalcode.org/project/file_mdm.git",
             "reference": "8.x-1.1"
         },
         "dist": {
@@ -3590,7 +3590,7 @@
         "version_normalized": "2.0.0.0",
         "source": {
             "type": "git",
-            "url": "https://git.drupal.org/project/video_embed_field",
+            "url": "https://git.drupalcode.org/project/video_embed_field.git",
             "reference": "8.x-2.0"
         },
         "dist": {
@@ -3645,70 +3645,6 @@
         "homepage": "https://www.drupal.org/project/video_embed_field",
         "support": {
             "source": "http://cgit.drupalcode.org/video_embed_field"
-        }
-    },
-    {
-        "name": "drupal/audiofield",
-        "version": "1.8.0",
-        "version_normalized": "1.8.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://git.drupal.org/project/audiofield",
-            "reference": "8.x-1.8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/audiofield-8.x-1.8.zip",
-            "reference": "8.x-1.8",
-            "shasum": "a2e4c5b7f81ec6d3d015b22a63560fd1a8f56682"
-        },
-        "require": {
-            "drupal/core": "~8.0"
-        },
-        "type": "drupal-module",
-        "extra": {
-            "branch-alias": {
-                "dev-1.x": "1.x-dev"
-            },
-            "drupal": {
-                "version": "8.x-1.8",
-                "datestamp": "1543249980",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
-            },
-            "drush": {
-                "services": {
-                    "drush.services.yml": "^9"
-                }
-            }
-        },
-        "installation-source": "dist",
-        "notification-url": "https://packages.drupal.org/8/downloads",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "authors": [
-            {
-                "name": "Daniel Moberly",
-                "homepage": "https://www.drupal.org/u/danielmoberly",
-                "role": "Maintainer"
-            },
-            {
-                "name": "josipsaric",
-                "homepage": "https://www.drupal.org/user/3063287"
-            },
-            {
-                "name": "tamerzg",
-                "homepage": "https://www.drupal.org/user/464564"
-            }
-        ],
-        "description": "AudioField Module",
-        "homepage": "https://www.drupal.org/project/audiofield",
-        "support": {
-            "source": "http://cgit.drupalcode.org/audiofield",
-            "issues": "https://www.drupal.org/project/issues/audiofield"
         }
     },
     {
@@ -5662,7 +5598,7 @@
         "version_normalized": "1.8.0.0",
         "source": {
             "type": "git",
-            "url": "https://git.drupal.org/project/metatag",
+            "url": "https://git.drupalcode.org/project/metatag.git",
             "reference": "8.x-1.8"
         },
         "dist": {
@@ -5732,7 +5668,7 @@
         "version_normalized": "2.3.0.0",
         "source": {
             "type": "git",
-            "url": "https://git.drupal.org/project/image_effects",
+            "url": "https://git.drupalcode.org/project/image_effects.git",
             "reference": "8.x-2.3"
         },
         "dist": {
@@ -5794,7 +5730,7 @@
         "version_normalized": "3.0.0.0-alpha4",
         "source": {
             "type": "git",
-            "url": "https://git.drupal.org/project/feeds",
+            "url": "https://git.drupalcode.org/project/feeds.git",
             "reference": "8.x-3.0-alpha4"
         },
         "dist": {
@@ -6021,7 +5957,7 @@
         "version_normalized": "3.2.0.0",
         "source": {
             "type": "git",
-            "url": "https://git.drupal.org/project/ctools",
+            "url": "https://git.drupalcode.org/project/ctools.git",
             "reference": "8.x-3.2"
         },
         "dist": {
@@ -6447,5 +6383,69 @@
             "serializer",
             "xml"
         ]
+    },
+    {
+        "name": "drupal/audiofield",
+        "version": "1.9.0",
+        "version_normalized": "1.9.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/audiofield.git",
+            "reference": "8.x-1.9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/audiofield-8.x-1.9.zip",
+            "reference": "8.x-1.9",
+            "shasum": "ddb2ca8dd5125a2bd0104e0001037c6fa2716682"
+        },
+        "require": {
+            "drupal/core": "~8.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.9",
+                "datestamp": "1553712781",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            },
+            "drush": {
+                "services": {
+                    "drush.services.yml": "^9"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Daniel Moberly",
+                "homepage": "https://www.drupal.org/u/danielmoberly",
+                "role": "Maintainer"
+            },
+            {
+                "name": "josipsaric",
+                "homepage": "https://www.drupal.org/user/3063287"
+            },
+            {
+                "name": "tamerzg",
+                "homepage": "https://www.drupal.org/user/464564"
+            }
+        ],
+        "description": "AudioField Module",
+        "homepage": "https://www.drupal.org/project/audiofield",
+        "support": {
+            "source": "https://git.drupalcode.org/project/audiofield",
+            "issues": "https://www.drupal.org/project/issues/audiofield"
+        }
     }
 ]
