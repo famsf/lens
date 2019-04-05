@@ -87,6 +87,7 @@ class ComposerStaticInitDrupal8
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
+            'PantheonSystems\\CDNBehatHelpers\\' => 32,
         ),
         'M' => 
         array (
@@ -312,6 +313,10 @@ class ComposerStaticInitDrupal8
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'PantheonSystems\\CDNBehatHelpers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/contrib/pantheon_advanced_page_cache/tests/behat/helper_classes',
         ),
         'Masterminds\\' => 
         array (

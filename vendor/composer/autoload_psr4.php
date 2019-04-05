@@ -44,6 +44,7 @@ return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'PantheonSystems\\CDNBehatHelpers\\' => array($baseDir . '/modules/contrib/pantheon_advanced_page_cache/tests/behat/helper_classes'),
     'Masterminds\\' => array($vendorDir . '/masterminds/html5/src'),
     'Lullabot\\AMP\\' => array($vendorDir . '/lullabot/amp/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
