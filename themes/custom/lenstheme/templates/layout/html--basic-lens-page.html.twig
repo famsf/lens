@@ -26,6 +26,11 @@
 #}
 
 <!doctype html>
+
+{% if artwork_thumbnail is not empty %}
+  {% set main_image = base_url ~ file_url(artwork_thumbnail) %}
+{% endif %}
+{% set image = file_url(artwork_thumbnail) %}
 {% set logo_uri = base_url ~ '/themes/custom/lenstheme/images/dY.png' %}
 
 <html amp{{ html_attributes }}>
@@ -48,23 +53,17 @@
             "geoRadius": 115
           }
         },
-        "arTarget": {
-          "@type": "Place",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "San Francisco",
-            "addressRegion": "CA",
-            "postalCode": "94118",
-            "streetAddress": "50 Hagiwara Tea Garden Dr"
-          }
-        },
-  
         "arContent": {
           "@type": "WebPage",
           "name": "Explore the de Young Museum",
           "description": "Tour the de Young Museum with Lens.",
-          "image": "{{ logo_uri }}",
-          "url": "{{ url('<current>') }}?amp"
+          "image": "{{ main_image }}",
+          "url": "{{ url('<current>') }}?amp",
+          "publisher": {
+            "@type": "Organization",
+            "name": "de Young museum",
+            "logo": "{{ logo_uri }}"
+          }
         }
       }
     </script>

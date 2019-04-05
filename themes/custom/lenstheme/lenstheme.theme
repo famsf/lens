@@ -19,18 +19,17 @@ function lenstheme_preprocess_html(&$variables) {
   $variables['node_title'] = $node->getTitle();
   $variables['node_teaser'] = $node->get('body')->value;
   $variables['base_url'] = $GLOBALS['base_url'];
+  $variables['artwork_thumbnail'] = $node->get('field_image')->entity->uri->value;
 };
 
 function lenstheme_preprocess_html__lenslet(&$variables) {
   $node = \Drupal::request()->attributes->get('node');
-  $variables['artwork_thumbnail'] = $node->get('field_image')->entity->uri->value;
   $variables['intro_title'] = $node->get('field_question')->value;
   $variables['artist_name'] = $node->get('field_artist_name')->value;
 };
 
 function lenstheme_preprocess_html__prvacki_lenslet(&$variables) {
   $node = \Drupal::request()->attributes->get('node');
-  $variables['artwork_thumbnail'] = $node->get('field_image')->entity->uri->value;
   $variables['intro_title'] = $node->get('field_question')->value;
   $variables['artist_name'] = $node->get('field_artist_name')->value;
   $variables['search_card_image'] = $node->get('field_search_card_image')->entity->uri->value;
