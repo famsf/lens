@@ -53,12 +53,12 @@
           "@type": "WebPage",
           "name": "{{ intro_title }}",
           "description": "{{ node_teaser|striptags|raw|length > 100 ? node_teaser|striptags|slice(0, 100) ~ '...' : node_teaser }}",
-          "image": "{{ main_image }}",
+          "image": "{{ card_image }}",
           "url": "{{ amp_url }}?amp",
           "publisher": {
             "@type": "Organization",
             "name": "de Young museum",
-            "logo": "{{ logo_uri }}"
+            "logo": "{{ logo_uri }}",
           }
         }
       }

@@ -29,6 +29,7 @@
 
 {% if artwork_thumbnail is not empty %}
   {% set main_image = base_url ~ file_url(artwork_thumbnail) %}
+  {% set card_image = base_url ~ file_url(artwork_thumbnail | image_style('lens_search_card')) %}
 {% endif %}
 {% set logo_uri = base_url ~ '/themes/custom/lenstheme/images/dY.png' %}
 {% set amp_url = url('<current>') %}
@@ -54,7 +55,7 @@
           "@type": "WebPage",
           "name": "{{ intro_title }}",
           "description": "{{ node_teaser|striptags|raw|length > 100 ? node_teaser|striptags|slice(0, 100) ~ '...' : node_teaser }}",
-          "image": "{{ main_image }}",
+          "image": "{{ card_image }}",
           "url": "{{ amp_url }}?amp",
           "publisher": {
             "@type": "Organization",
