@@ -5,13 +5,13 @@ dependencies:
   module:
     - focal_point
 name: lens_search_card
-label: 'Lens search card 1280x720'
+label: 'Lens search card'
 effects:
   090f2c36-b5d0-488b-99df-2d213615f370:
     uuid: 090f2c36-b5d0-488b-99df-2d213615f370
     id: focal_point_scale_and_crop
     weight: 1
     data:
-      width: 1280
-      height: 720
+      width: 1024
+      height: 576
       crop_type: focal_point

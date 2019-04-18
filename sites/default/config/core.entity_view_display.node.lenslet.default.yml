@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.lenslet.field_region
     - field.field.node.lenslet.field_rights
     - field.field.node.lenslet.field_video
+    - image.style.lens_search_card
     - node.type.lenslet
   module:
     - field_group
@@ -132,7 +133,7 @@ content:
     weight: 1
     label: hidden
     settings:
-      image_style: ''
+      image_style: lens_search_card
       image_link: ''
     third_party_settings: {  }
     type: image
