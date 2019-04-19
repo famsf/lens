@@ -379,7 +379,7 @@ class ValidationRulesFactory {
   $o_19 = new AttrSpec();
   $o_19->name = 'href';
   $o_19->mandatory = true;
-  $o_19->value_regex = 'https://fonts\\.googleapis\\.com/css\\?.*|https://fonts\\.googleapis\\.com/icon\\?.*|https://fonts\\.googleapis\\.com/earlyaccess/.*\\.css|https://fast\\.fonts\\.net/.*|https://maxcdn\\.bootstrapcdn\\.com/font-awesome/.*|https://use\\.typekit\\.net/.*';
+  $o_19->value_regex = 'https://fonts\\.googleapis\\.com/css\\?.*|https://fonts\\.googleapis\\.com/icon\\?.*|https://fonts\\.googleapis\\.com/earlyaccess/.*\\.css|https://fast\\.fonts\\.net/.*|https://maxcdn\\.bootstrapcdn\\.com/font-awesome/.*';
   $o_18->attrs[] = $o_19;
   $o_20 = new AttrSpec();
   $o_20->name = 'rel';
