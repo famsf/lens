@@ -105,7 +105,6 @@ abstract class Constraint
      */
     public function __construct($options = null)
     {
-        $defaultOption = $this->getDefaultOption();
         $invalidOptions = [];
         $missingOptions = array_flip((array) $this->getRequiredOptions());
         $knownOptions = get_object_vars($this);
@@ -113,12 +112,8 @@ abstract class Constraint
         // The "groups" option is added to the object lazily
         $knownOptions['groups'] = true;
 
-        if (\is_array($options) && isset($options['value']) && !property_exists($this, 'value')) {
-            if (null === $defaultOption) {
-                throw new ConstraintDefinitionException(sprintf('No default option is configured for constraint "%s".', \get_class($this)));
-            }
-
-            $options[$defaultOption] = $options['value'];
+        if (\is_array($options) && \count($options) >= 1 && isset($options['value']) && !property_exists($this, 'value')) {
+            $options[$this->getDefaultOption()] = $options['value'];
             unset($options['value']);
         }
 
@@ -135,24 +130,26 @@ abstract class Constraint
                 }
             }
         } elseif (null !== $options && !(\is_array($options) && 0 === \count($options))) {
-            if (null === $defaultOption) {
-                throw new ConstraintDefinitionException(sprintf('No default option is configured for constraint "%s".', \get_class($this)));
+            $option = $this->getDefaultOption();
+
+            if (null === $option) {
+                throw new ConstraintDefinitionException(sprintf('No default option is configured for constraint %s', \get_class($this)));
             }
 
-            if (\array_key_exists($defaultOption, $knownOptions)) {
-                $this->$defaultOption = $options;
-                unset($missingOptions[$defaultOption]);
+            if (\array_key_exists($option, $knownOptions)) {
+                $this->$option = $options;
+                unset($missingOptions[$option]);
             } else {
-                $invalidOptions[] = $defaultOption;
+                $invalidOptions[] = $option;
             }
         }
 
         if (\count($invalidOptions) > 0) {
-            throw new InvalidOptionsException(sprintf('The options "%s" do not exist in constraint "%s".', implode('", "', $invalidOptions), \get_class($this)), $invalidOptions);
+            throw new InvalidOptionsException(sprintf('The options "%s" do not exist in constraint %s', implode('", "', $invalidOptions), \get_class($this)), $invalidOptions);
         }
 
         if (\count($missingOptions) > 0) {
-            throw new MissingOptionsException(sprintf('The options "%s" must be set for constraint "%s".', implode('", "', array_keys($missingOptions)), \get_class($this)), array_keys($missingOptions));
+            throw new MissingOptionsException(sprintf('The options "%s" must be set for constraint %s', implode('", "', array_keys($missingOptions)), \get_class($this)), array_keys($missingOptions));
         }
     }
 
@@ -176,7 +173,7 @@ abstract class Constraint
             return;
         }
 
-        throw new InvalidOptionsException(sprintf('The option "%s" does not exist in constraint "%s".', $option, \get_class($this)), [$option]);
+        throw new InvalidOptionsException(sprintf('The option "%s" does not exist in constraint %s', $option, \get_class($this)), [$option]);
     }
 
     /**
@@ -202,7 +199,7 @@ abstract class Constraint
             return $this->groups;
         }
 
-        throw new InvalidOptionsException(sprintf('The option "%s" does not exist in constraint "%s".', $option, \get_class($this)), [$option]);
+        throw new InvalidOptionsException(sprintf('The option "%s" does not exist in constraint %s', $option, \get_class($this)), [$option]);
     }
 
     /**
@@ -232,13 +229,12 @@ abstract class Constraint
      *
      * Override this method to define a default option.
      *
-     * @return string|null
+     * @return string
      *
      * @see __construct()
      */
     public function getDefaultOption()
     {
-        return null;
     }
 
     /**
@@ -260,7 +256,7 @@ abstract class Constraint
      *
      * By default, this is the fully qualified name of the constraint class
      * suffixed with "Validator". You can override this method to change that
-     * behavior.
+     * behaviour.
      *
      * @return string
      */

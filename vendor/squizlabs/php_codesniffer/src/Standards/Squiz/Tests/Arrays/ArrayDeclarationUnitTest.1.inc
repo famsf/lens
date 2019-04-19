@@ -403,8 +403,3 @@ $paths = array(
           Init::ROOT_DIR.'/тип'  => 'авто',
           Init::ROOT_DIR.'/цвет' => 'синий',
          );
-
-// Intentional syntax error.
-$a = array(
-      'a' =>
-     );

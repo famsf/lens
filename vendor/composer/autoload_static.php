@@ -567,7 +567,7 @@ class ComposerStaticInitDrupal8
             ),
             'DrupalPractice\\' => 
             array (
-                0 => __DIR__ . '/..' . '/drupal/coder/coder_sniffer/DrupalPractice',
+                0 => __DIR__ . '/..' . '/drupal/coder/coder_sniffer/Drupal',
             ),
             'Doctrine\\Common\\Lexer\\' => 
             array (

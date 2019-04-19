@@ -296,8 +296,7 @@ class ScopeIndentSniff implements Sniff
                     $condition = 0;
                     if (isset($tokens[$parenCloser]['conditions']) === true
                         && empty($tokens[$parenCloser]['conditions']) === false
-                        && (isset($tokens[$parenCloser]['parenthesis_owner']) === false
-                        || $parens > 0)
+                        && isset($tokens[$parenCloser]['parenthesis_owner']) === false
                     ) {
                         $condition = $tokens[$parenCloser]['conditions'];
                         end($condition);
@@ -600,7 +599,7 @@ class ScopeIndentSniff implements Sniff
                     if ($this->debug === true) {
                         $line = $tokens[$checkToken]['line'];
                         $type = $tokens[$checkToken]['type'];
-                        echo "\t=> add adjustment of ".$adjustments[$checkToken]." for token $checkToken ($type) on line $line".PHP_EOL;
+                        echo "\t=> Add adjustment of ".$adjustments[$checkToken]." for token $checkToken ($type) on line $line".PHP_EOL;
                     }
                 }//end if
             }//end if
@@ -634,13 +633,8 @@ class ScopeIndentSniff implements Sniff
                 $scopeCloser = $checkToken;
                 if ($scopeCloser === null) {
                     $scopeCloser = $i;
-                }
-
-                $conditionToken = array_pop($openScopes);
-                if ($this->debug === true) {
-                    $line = $tokens[$conditionToken]['line'];
-                    $type = $tokens[$conditionToken]['type'];
-                    echo "\t=> removed open scope $conditionToken ($type) on line $line".PHP_EOL;
+                } else {
+                    array_pop($openScopes);
                 }
 
                 if (isset($tokens[$scopeCloser]['scope_condition']) === true) {
@@ -665,6 +659,11 @@ class ScopeIndentSniff implements Sniff
                     $currentIndent = ($tokens[$first]['column'] - 1);
                     if (isset($adjustments[$first]) === true) {
                         $currentIndent += $adjustments[$first];
+                    }
+
+                    // Make sure it is divisible by our expected indent.
+                    if ($tokens[$tokens[$scopeCloser]['scope_condition']]['code'] !== T_CLOSURE) {
+                        $currentIndent = (int) (ceil($currentIndent / $this->indent) * $this->indent);
                     }
 
                     $setIndents[$scopeCloser] = $currentIndent;
@@ -702,12 +701,7 @@ class ScopeIndentSniff implements Sniff
                 if ($scopeCloser === null) {
                     $scopeCloser = $i;
                 } else {
-                    $conditionToken = array_pop($openScopes);
-                    if ($this->debug === true) {
-                        $line = $tokens[$conditionToken]['line'];
-                        $type = $tokens[$conditionToken]['type'];
-                        echo "\t=> removed open scope $conditionToken ($type) on line $line".PHP_EOL;
-                    }
+                    array_pop($openScopes);
                 }
 
                 $parens = 0;
@@ -968,7 +962,7 @@ class ScopeIndentSniff implements Sniff
                     if ($accepted === true && $this->debug === true) {
                         $line = $tokens[$checkToken]['line'];
                         $type = $tokens[$checkToken]['type'];
-                        echo "\t=> add adjustment of ".$adjustments[$checkToken]." for token $checkToken ($type) on line $line".PHP_EOL;
+                        echo "\t=> Add adjustment of ".$adjustments[$checkToken]." for token $checkToken ($type) on line $line".PHP_EOL;
                     }
                 }
             }//end if
@@ -1113,15 +1107,6 @@ class ScopeIndentSniff implements Sniff
 
                 $currentIndent = (($tokens[$first]['column'] - 1) + $this->indent);
                 $openScopes[$tokens[$i]['scope_closer']] = $tokens[$i]['scope_condition'];
-                if ($this->debug === true) {
-                    $closerToken    = $tokens[$i]['scope_closer'];
-                    $closerLine     = $tokens[$closerToken]['line'];
-                    $closerType     = $tokens[$closerToken]['type'];
-                    $conditionToken = $tokens[$i]['scope_condition'];
-                    $conditionLine  = $tokens[$conditionToken]['line'];
-                    $conditionType  = $tokens[$conditionToken]['type'];
-                    echo "\t=> added open scope $closerToken ($closerType) on line $closerLine, pointing to condition $conditionToken ($conditionType) on line $conditionLine".PHP_EOL;
-                }
 
                 if (isset($adjustments[$first]) === true) {
                     $currentIndent += $adjustments[$first];
@@ -1170,15 +1155,6 @@ class ScopeIndentSniff implements Sniff
                     $currentIndent += $this->indent;
                     $setIndents[$i] = $currentIndent;
                     $openScopes[$tokens[$i]['scope_closer']] = $tokens[$i]['scope_condition'];
-                    if ($this->debug === true) {
-                        $closerToken    = $tokens[$i]['scope_closer'];
-                        $closerLine     = $tokens[$closerToken]['line'];
-                        $closerType     = $tokens[$closerToken]['type'];
-                        $conditionToken = $tokens[$i]['scope_condition'];
-                        $conditionLine  = $tokens[$conditionToken]['line'];
-                        $conditionType  = $tokens[$conditionToken]['type'];
-                        echo "\t=> added open scope $closerToken ($closerType) on line $closerLine, pointing to condition $conditionToken ($conditionType) on line $conditionLine".PHP_EOL;
-                    }
 
                     if ($this->debug === true) {
                         $type = $tokens[$i]['type'];
@@ -1186,7 +1162,7 @@ class ScopeIndentSniff implements Sniff
                     }
 
                     continue;
-                }//end if
+                }
             }//end if
 
             // JS objects set the indent level.

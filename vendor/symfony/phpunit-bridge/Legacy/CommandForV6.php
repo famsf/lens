@@ -13,7 +13,7 @@ namespace Symfony\Bridge\PhpUnit\Legacy;
 
 use PHPUnit\TextUI\Command as BaseCommand;
 use PHPUnit\TextUI\TestRunner as BaseRunner;
-use Symfony\Bridge\PhpUnit\SymfonyTestsListener;
+use Symfony\Bridge\PhpUnit\TextUI\TestRunner;
 
 /**
  * {@inheritdoc}
@@ -27,24 +27,6 @@ class CommandForV6 extends BaseCommand
      */
     protected function createRunner(): BaseRunner
     {
-        $listener = new SymfonyTestsListener();
-
-        $this->arguments['listeners'] = isset($this->arguments['listeners']) ? $this->arguments['listeners'] : [];
-
-        $registeredLocally = false;
-
-        foreach ($this->arguments['listeners'] as $registeredListener) {
-            if ($registeredListener instanceof SymfonyTestsListener) {
-                $registeredListener->globalListenerDisabled();
-                $registeredLocally = true;
-                break;
-            }
-        }
-
-        if (!$registeredLocally) {
-            $this->arguments['listeners'][] = $listener;
-        }
-
-        return parent::createRunner();
+        return new TestRunner($this->arguments['loader']);
     }
 }
