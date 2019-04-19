@@ -362,7 +362,9 @@ function twig_random(Environment $env, $values = null, $max = null)
         return mt_rand($min, $max);
     }
 
-    if (\is_string($values)) {
+    if ($values instanceof \Traversable) {
+        $values = iterator_to_array($values);
+    } elseif (\is_string($values)) {
         if ('' === $values) {
             return '';
         }
@@ -385,11 +387,9 @@ function twig_random(Environment $env, $values = null, $max = null)
         }
     }
 
-    if (!twig_test_iterable($values)) {
+    if (!\is_array($values)) {
         return $values;
     }
-
-    $values = twig_to_array($values);
 
     if (0 === \count($values)) {
         throw new RuntimeError('The random function cannot pick from an empty array.');
@@ -510,17 +510,17 @@ function twig_date_converter(Environment $env, $date = null, $timezone = null)
  */
 function twig_replace_filter($str, $from, $to = null)
 {
-    if (\is_string($from) && \is_string($to)) {
+    if ($from instanceof \Traversable) {
+        $from = iterator_to_array($from);
+    } elseif (\is_string($from) && \is_string($to)) {
         @trigger_error('Using "replace" with character by character replacement is deprecated since version 1.22 and will be removed in Twig 2.0', E_USER_DEPRECATED);
 
         return strtr($str, $from, $to);
-    }
-
-    if (!twig_test_iterable($from)) {
+    } elseif (!\is_array($from)) {
         throw new RuntimeError(sprintf('The "replace" filter expects an array or "Traversable" as replace values, got "%s".', \is_object($from) ? \get_class($from) : \gettype($from)));
     }
 
-    return strtr($str, twig_to_array($from));
+    return strtr($str, $from);
 }
 
 /**
@@ -639,15 +639,19 @@ function _twig_markup2string(&$value)
  */
 function twig_array_merge($arr1, $arr2)
 {
-    if (!twig_test_iterable($arr1)) {
+    if ($arr1 instanceof \Traversable) {
+        $arr1 = iterator_to_array($arr1);
+    } elseif (!\is_array($arr1)) {
         throw new RuntimeError(sprintf('The merge filter only works with arrays or "Traversable", got "%s" as first argument.', \gettype($arr1)));
     }
 
-    if (!twig_test_iterable($arr2)) {
+    if ($arr2 instanceof \Traversable) {
+        $arr2 = iterator_to_array($arr2);
+    } elseif (!\is_array($arr2)) {
         throw new RuntimeError(sprintf('The merge filter only works with arrays or "Traversable", got "%s" as second argument.', \gettype($arr2)));
     }
 
-    return array_merge(twig_to_array($arr1), twig_to_array($arr2));
+    return array_merge($arr1, $arr2);
 }
 
 /**
@@ -670,7 +674,7 @@ function twig_slice(Environment $env, $item, $start, $length = null, $preserveKe
         if ($start >= 0 && $length >= 0 && $item instanceof \Iterator) {
             try {
                 return iterator_to_array(new \LimitIterator($item, $start, null === $length ? -1 : $length), $preserveKeys);
-            } catch (\OutOfBoundsException $e) {
+            } catch (\OutOfBoundsException $exception) {
                 return [];
             }
         }
@@ -741,11 +745,11 @@ function twig_last(Environment $env, $item)
  */
 function twig_join_filter($value, $glue = '', $and = null)
 {
-    if (!twig_test_iterable($value)) {
+    if ($value instanceof \Traversable) {
+        $value = iterator_to_array($value, false);
+    } else {
         $value = (array) $value;
     }
-
-    $value = twig_to_array($value, false);
 
     if (0 === \count($value)) {
         return '';
@@ -755,11 +759,12 @@ function twig_join_filter($value, $glue = '', $and = null)
         return implode($glue, $value);
     }
 
-    if (1 === \count($value)) {
-        return $value[0];
+    $v = array_values($value);
+    if (1 === \count($v)) {
+        return $v[0];
     }
 
-    return implode($glue, \array_slice($value, 0, -1)).$and.$value[\count($value) - 1];
+    return implode($glue, \array_slice($value, 0, -1)).$and.$v[\count($v) - 1];
 }
 
 /**
@@ -992,7 +997,7 @@ function twig_trim_filter($string, $characterMask = null, $side = 'both')
  */
 function twig_spaceless($content)
 {
-    return trim(preg_replace('/>\s+</', '><', $content));
+    return preg_replace('/>\s+</', '><', $content);
 }
 
 /**
@@ -1307,16 +1312,20 @@ if (\function_exists('mb_get_info')) {
             return mb_strlen($thing, $env->getCharset());
         }
 
-        if ($thing instanceof \Countable || \is_array($thing) || $thing instanceof \SimpleXMLElement) {
+        if ($thing instanceof \SimpleXMLElement) {
             return \count($thing);
         }
 
-        if ($thing instanceof \Traversable) {
-            return iterator_count($thing);
+        if (\is_object($thing) && method_exists($thing, '__toString') && !$thing instanceof \Countable) {
+            return mb_strlen((string) $thing, $env->getCharset());
         }
 
-        if (\is_object($thing) && method_exists($thing, '__toString')) {
-            return mb_strlen((string) $thing, $env->getCharset());
+        if ($thing instanceof \Countable || \is_array($thing)) {
+            return \count($thing);
+        }
+
+        if ($thing instanceof \IteratorAggregate) {
+            return iterator_count($thing);
         }
 
         return 1;
@@ -1462,22 +1471,6 @@ function twig_ensure_traversable($seq)
 }
 
 /**
- * @internal
- */
-function twig_to_array($seq, $preserveKeys = true)
-{
-    if ($seq instanceof \Traversable) {
-        return iterator_to_array($seq, $preserveKeys);
-    }
-
-    if (!\is_array($seq)) {
-        return $seq;
-    }
-
-    return $preserveKeys ? $seq : array_values($seq);
-}
-
-/**
  * Checks if a variable is empty.
  *
  *    {# evaluates to true if the foo variable is null, false, or the empty string #}
@@ -1546,9 +1539,9 @@ function twig_include(Environment $env, $context, $template, $variables = [], $w
         }
     }
 
-    $loaded = null;
+    $result = '';
     try {
-        $loaded = $env->resolveTemplate($template);
+        $result = $env->resolveTemplate($template)->render($variables);
     } catch (LoaderError $e) {
         if (!$ignoreMissing) {
             if ($isSandboxed && !$alreadySandboxed) {
@@ -1571,21 +1564,11 @@ function twig_include(Environment $env, $context, $template, $variables = [], $w
         throw $e;
     }
 
-    try {
-        $ret = $loaded ? $loaded->render($variables) : '';
-    } catch (\Exception $e) {
-        if ($isSandboxed && !$alreadySandboxed) {
-            $sandbox->disableSandbox();
-        }
-
-        throw $e;
-    }
-
     if ($isSandboxed && !$alreadySandboxed) {
         $sandbox->disableSandbox();
     }
 
-    return $ret;
+    return $result;
 }
 
 /**
@@ -1657,18 +1640,18 @@ function twig_constant_is_defined($constant, $object = null)
  */
 function twig_array_batch($items, $size, $fill = null, $preserveKeys = true)
 {
-    if (!twig_test_iterable($items)) {
-        throw new RuntimeError(sprintf('The "batch" filter expects an array or "Traversable", got "%s".', \is_object($items) ? \get_class($items) : \gettype($items)));
+    if ($items instanceof \Traversable) {
+        $items = iterator_to_array($items, $preserveKeys);
     }
 
     $size = ceil($size);
 
-    $result = array_chunk(twig_to_array($items, $preserveKeys), $size, $preserveKeys);
+    $result = array_chunk($items, $size, $preserveKeys);
 
     if (null !== $fill && $result) {
         $last = \count($result) - 1;
         if ($fillCount = $size - \count($result[$last])) {
-            for ($i = 0; $i < $fillCount; ++$i) {
+            for ($i = 0; $i < $fillCount; $i++) {
                 $result[$last][] = $fill;
             }
         }

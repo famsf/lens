@@ -352,18 +352,24 @@ class RecursiveContextualValidator implements ContextualValidatorInterface
      * Validates each object in a collection against the constraints defined
      * for their classes.
      *
-     * Nested arrays are also iterated.
+     * If the parameter $recursive is set to true, nested {@link \Traversable}
+     * objects are iterated as well. Nested arrays are always iterated,
+     * regardless of the value of $recursive.
      *
      * @param iterable                  $collection   The collection
      * @param string                    $propertyPath The current property path
      * @param (string|GroupSequence)[]  $groups       The validated groups
      * @param ExecutionContextInterface $context      The current execution context
+     *
+     * @see ClassNode
+     * @see CollectionNode
      */
     private function validateEachObjectIn($collection, $propertyPath, array $groups, ExecutionContextInterface $context)
     {
         foreach ($collection as $key => $value) {
             if (\is_array($value)) {
-                // Also traverse nested arrays
+                // Arrays are always cascaded, independent of the specified
+                // traversal strategy
                 $this->validateEachObjectIn(
                     $value,
                     $propertyPath.'['.$key.']',
@@ -593,8 +599,7 @@ class RecursiveContextualValidator implements ContextualValidatorInterface
      * in the passed metadata object. Then, if the value is an instance of
      * {@link \Traversable} and the selected traversal strategy permits it,
      * the value is traversed and each nested object validated against its own
-     * constraints. If the value is an array, it is traversed regardless of
-     * the given strategy.
+     * constraints. Arrays are always traversed.
      *
      * @param mixed                     $value             The validated value
      * @param object|null               $object            The current object
@@ -653,8 +658,8 @@ class RecursiveContextualValidator implements ContextualValidatorInterface
 
         $cascadingStrategy = $metadata->getCascadingStrategy();
 
-        // Quit unless we cascade
-        if (!($cascadingStrategy & CascadingStrategy::CASCADE)) {
+        // Quit unless we have an array or a cascaded object
+        if (!\is_array($value) && !($cascadingStrategy & CascadingStrategy::CASCADE)) {
             return;
         }
 
