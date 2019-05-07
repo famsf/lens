@@ -19,7 +19,8 @@
         "masterminds/html5": "~2.3.0",
         "drupal/pantheon_advanced_page_cache": "^1.0",
         "drupal/twig_tweak": "^2.3",
-        "drupal/image_style_warmer": "^1.0@beta"
+        "drupal/image_style_warmer": "^1.0@beta",
+        "drupal/quick_node_clone": "^1.12"
     },
     "replace": {
 
