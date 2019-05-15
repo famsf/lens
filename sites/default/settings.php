@@ -50,9 +50,9 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
     exit();
   }
   
-  if (($_SERVER['REQUEST_URI'] == '/prvacki/circumambulation-version-2') && (php_sapi_name() != "cli")) {
+  if (($_SERVER['REQUEST_URI'] == '/prvacki/circumambulation-version-2?amp') && (php_sapi_name() != "cli")) {
   header('HTTP/1.0 301 Moved Permanently');
-  header('Location: https://'. $_SERVER['HTTP_HOST'] . '/prvacki/circumambulation');
+  header('Location: https://'. $_SERVER['HTTP_HOST'] . '/prvacki/circumambulation?amp');
 
   # Name transaction "redirect" in New Relic for improved reporting (optional)
   if (extension_loaded('newrelic')) {
