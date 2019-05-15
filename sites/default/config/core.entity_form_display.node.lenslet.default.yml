@@ -22,12 +22,14 @@ dependencies:
     - field.field.node.lenslet.field_question
     - field.field.node.lenslet.field_region
     - field.field.node.lenslet.field_rights
+    - field.field.node.lenslet.field_search_card_image
     - field.field.node.lenslet.field_video
     - image.style.medium
     - node.type.lenslet
   module:
     - field_group
     - focal_point
+    - image
     - metatag
     - path
     - text
@@ -44,7 +46,7 @@ third_party_settings:
         - field_country
         - field_region
       parent_name: ''
-      weight: 9
+      weight: 11
       format_type: details
       format_settings:
         id: ''
@@ -53,6 +55,20 @@ third_party_settings:
         required_fields: true
       label: 'Artwork details'
       region: content
+    group_artwork_image:
+      children:
+        - field_image
+        - field_search_card_image
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Artwork image'
+      region: content
 id: node.lenslet.default
 targetEntityType: node
 bundle: lenslet
@@ -60,7 +76,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 5
+    weight: 7
     settings:
       rows: 9
       summary_rows: 3
@@ -69,13 +85,13 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 12
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   field_artist:
     type: entity_reference_autocomplete
-    weight: 17
+    weight: 19
     region: content
     settings:
       match_operator: CONTAINS
@@ -91,7 +107,7 @@ content:
     type: string_textfield
     region: content
   field_artwork_location:
-    weight: 10
+    weight: 12
     settings:
       match_operator: CONTAINS
       size: 60
@@ -100,21 +116,12 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_badges:
-    weight: 8
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_collection:
-    weight: 10
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_country:
     weight: 11
     settings:
       match_operator: CONTAINS
@@ -123,8 +130,17 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_country:
+    weight: 12
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_date:
-    weight: 3
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -148,7 +164,7 @@ content:
     type: string_textfield
     region: content
   field_image:
-    weight: 2
+    weight: 3
     settings:
       preview_image_style: medium
       preview_link: true
@@ -158,7 +174,7 @@ content:
     type: image_focal_point
     region: content
   field_intro_title:
-    weight: 26
+    weight: 21
     settings:
       size: 60
       placeholder: ''
@@ -182,13 +198,13 @@ content:
     type: string_textfield
     region: content
   field_mets:
-    weight: 18
+    weight: 20
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
     region: content
   field_question:
-    weight: 4
+    weight: 6
     settings:
       size: 60
       placeholder: ''
@@ -196,7 +212,7 @@ content:
     type: text_textfield
     region: content
   field_region:
-    weight: 12
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -204,22 +220,30 @@ content:
     type: string_textfield
     region: content
   field_rights:
-    weight: 7
+    weight: 9
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_search_card_image:
+    weight: 4
+    settings:
+      preview_image_style: medium
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_image
+    region: content
   field_video:
-    weight: 6
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: video_embed_field_textfield
     region: content
   path:
     type: path
-    weight: 15
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -227,21 +251,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
+    weight: 15
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 18
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 14
+    weight: 16
     region: content
     third_party_settings: {  }
   title:
@@ -254,7 +278,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 13
     settings:
       match_operator: CONTAINS
       size: 60

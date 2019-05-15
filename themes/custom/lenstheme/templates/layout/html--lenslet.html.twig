@@ -31,6 +31,11 @@
   {% set main_image = base_url ~ file_url(artwork_thumbnail) %}
   {% set card_image = base_url ~ file_url(artwork_thumbnail | image_style('lens_search_card')) %}
 {% endif %}
+{% if search_card_image is not empty %}
+  {% set trigger_image = base_url ~ file_url(search_card_image) %}
+{% else %}
+  {% set trigger_image = base_url ~ file_url(artwork_thumbnail) %}
+{% endif %}
 {% set logo_uri = base_url ~ '/themes/custom/lenstheme/images/dY.png' %}
 {% set amp_url = url('<current>') %}
 {% set image = file_url(artwork_thumbnail) %}
@@ -48,7 +53,7 @@
           "@type": "ARImageTarget",
           "name": "{{ node_title }}",
           "description": "{{ artist_name }}",
-          "image": "{{ main_image }}"
+          "image": "{{ trigger_image }}"
         },
   
         "arContent": {

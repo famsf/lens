@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.lenslet.field_question
     - field.field.node.lenslet.field_region
     - field.field.node.lenslet.field_rights
+    - field.field.node.lenslet.field_search_card_image
     - field.field.node.lenslet.field_video
     - image.style.lenslet_header
     - node.type.lenslet
@@ -218,5 +219,6 @@ hidden:
   field_item_id: true
   field_mets: true
   field_region: true
+  field_search_card_image: true
   links: true
   related_works_entity_view_2: true

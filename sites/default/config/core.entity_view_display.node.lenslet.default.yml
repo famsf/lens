@@ -22,8 +22,8 @@ dependencies:
     - field.field.node.lenslet.field_question
     - field.field.node.lenslet.field_region
     - field.field.node.lenslet.field_rights
+    - field.field.node.lenslet.field_search_card_image
     - field.field.node.lenslet.field_video
-    - image.style.lens_search_card
     - node.type.lenslet
   module:
     - field_group
@@ -182,6 +182,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_search_card_image:
+    weight: 23
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   field_video:
     weight: 4
