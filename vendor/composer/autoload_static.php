@@ -87,6 +87,7 @@ class ComposerStaticInitDrupal8
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
+            'Prophecy\\' => 9,
             'PantheonSystems\\CDNBehatHelpers\\' => 32,
         ),
         'M' => 
@@ -139,6 +140,7 @@ class ComposerStaticInitDrupal8
             'Drupal\\Component\\Annotation\\' => 28,
             'Drupal\\Component\\' => 17,
             'Doctrine\\Instantiator\\' => 22,
+            'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\' => 16,
         ),
@@ -314,6 +316,10 @@ class ComposerStaticInitDrupal8
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Prophecy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
+        ),
         'PantheonSystems\\CDNBehatHelpers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/modules/contrib/pantheon_advanced_page_cache/tests/behat/helper_classes',
@@ -465,6 +471,10 @@ class ComposerStaticInitDrupal8
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
+        'Doctrine\\Common\\Lexer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
+        ),
         'Doctrine\\Common\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
@@ -506,7 +516,7 @@ class ComposerStaticInitDrupal8
         array (
             'org\\bovigo\\vfs\\' => 
             array (
-                0 => __DIR__ . '/..' . '/mikey179/vfsStream/src/main/php',
+                0 => __DIR__ . '/..' . '/mikey179/vfsstream/src/main/php',
             ),
         ),
         'W' => 
@@ -541,13 +551,6 @@ class ComposerStaticInitDrupal8
                 0 => __DIR__ . '/..' . '/querypath/querypath/src',
             ),
         ),
-        'P' => 
-        array (
-            'Prophecy\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
-            ),
-        ),
         'E' => 
         array (
             'Egulias\\' => 
@@ -568,10 +571,6 @@ class ComposerStaticInitDrupal8
             'DrupalPractice\\' => 
             array (
                 0 => __DIR__ . '/..' . '/drupal/coder/coder_sniffer/DrupalPractice',
-            ),
-            'Doctrine\\Common\\Lexer\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
             ),
             'Doctrine\\Common\\Inflector\\' => 
             array (
